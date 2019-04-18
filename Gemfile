@@ -75,6 +75,6 @@ gem 'cancan'
 gem 'carrierwave'
 gem 'mini_magick'
 #markup and others
-gem 'bootstrap', '~> 4.1.1'
+gem "bootstrap", ">= 4.3.1"
 gem "font-awesome-rails"
 gem 'pry-rails'
