@@ -34,10 +34,8 @@
 |-----------------|------------|------------------------------|
 | name            | string     | null: false, add_index: true |
 | description     | text       | null: false                  |
-| category        | references | null:false                   |
 | size            | string     | null: false, default: ""     |
-| brand           | references |                              |
-| status          | string     | null:false                   |
+| status          | integer(enum)     | null:false            |
 | responsibillity | boolean    | null:false                   |
 | delivery_method | references | null:false                   |
 | shipping_agency | string     | null:false                   |
@@ -133,3 +131,14 @@
 ### Association
 
 - belongs_to :category
+
+## delivery_methods  table
+
+| Column     | Type    | Option                   |
+|------------|---------|--------------------------|
+| name       | string  | null: false              |
+| commission | integer | null: false              |
+
+### Association
+
+- belongs_to :items
