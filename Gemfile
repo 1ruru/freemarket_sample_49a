@@ -79,4 +79,4 @@ gem "bootstrap", ">= 4.3.1"
 gem "font-awesome-rails"
 gem 'pry-rails'
 
-gem 'unicorn', '5.4.1'
+gem "unicorn", "~> 5.5.0.1.g6836"
