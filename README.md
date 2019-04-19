@@ -78,7 +78,7 @@
 | prefecture       | string | null: false |
 | city             | string | null: false |
 | house            | string | null: false |
-| building_name    | string |             |
+| building         | string |             |
 | phone            | string |             |
 
 ### Association
