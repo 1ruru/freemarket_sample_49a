@@ -94,7 +94,6 @@
 |------------|------------|--------------------------------|
 | title      | string     | null: false                    |
 | body       | text       | null: false                    |
-| created_at | datetime   | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
