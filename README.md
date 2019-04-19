@@ -44,6 +44,7 @@
 | profit          | integer    | null:false                   |
 | draft           | boolean    | null:false                   |
 | sold_out        | boolean    | null:false, default: false   |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -61,6 +62,7 @@
 | cvc             | string   | null: false               |
 | expiration_date | datetime | null: false               |
 | name            | string   | null: false               |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -68,18 +70,19 @@
 
 ## addresses table
 
-| Column           | Type   | Option      |
-|------------------|--------|-------------|
-| family_name      | string | null: false |
-| first_name       | string | null: false |
-| family_name_kana | string | null: false |
-| first_name_kana  | string | null: false |
-| postal_code      | string | null: false |
-| prefecture       | string | null: false |
-| city             | string | null: false |
-| house            | string | null: false |
-| building         | string |             |
-| phone            | string |             |
+| Column           | Type       | Option                         |
+|------------------|------------|--------------------------------|
+| family_name      | string     | null: false                    |
+| first_name       | string     | null: false                    |
+| family_name_kana | string     | null: false                    |
+| first_name_kana  | string     | null: false                    |
+| postal_code      | string     | null: false                    |
+| prefecture       | string     | null: false                    |
+| city             | string     | null: false                    |
+| house            | string     | null: false                    |
+| building         | string     |                                |
+| phone            | string     |                                |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -87,11 +90,12 @@
 
 ## notifications table
 
-| Column     | Type     | Option      |
-|------------|----------|-------------|
-| title      | string   | null: false |
-| body       | text     | null: false |
-| created_at | datetime | null: false |
+| Column     | Type       | Option                         |
+|------------|------------|--------------------------------|
+| title      | string     | null: false                    |
+| body       | text       | null: false                    |
+| created_at | datetime   | null: false                    |
+| user       | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -123,10 +127,11 @@
 
 ## brands table
 
-| Column    | Type    | Option                   |
-|-----------|---------|--------------------------|
-| name      | string  | null: false              |
-| parent_id | integer | null: false, index: true |
+| Column    | Type       | Option                         |
+|-----------|------------|--------------------------------|
+| name      | string     | null: false                    |
+| parent_id | integer    | null: false, index: true       |
+| category  | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -134,11 +139,12 @@
 
 ## delivery_methods  table
 
-| Column     | Type    | Option                   |
-|------------|---------|--------------------------|
-| name       | string  | null: false              |
-| commission | integer | null: false              |
+| Column     | Type       | Option                         |
+|------------|------------|--------------------------------|
+| name       | string     | null: false                    |
+| commission | integer    | null: false                    |
+| item       | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
