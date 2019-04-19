@@ -1,9 +1,26 @@
+.header
+  ここに追加してね
+
+.main
+  ここに追加してね
 
 .footer
   //フッターアプリ広告
-  .app_ad
-    aaa
-
+  .footer-app_ad
+    %div
+      .footer-app_ad--text
+        スマホでかんたんフリマアプリ
+      .footer-app_ad--emotion
+        今すぐ無料ダウンロード！
+      .footer-app_ad_icons
+        .footer-app_ad_icons--icon
+          = image_tag 'mercari_icon.png', size:"70x70"
+        .footer-app_ad_icons--icon
+          = image_tag 'app-store.svg', class:'foreign_link'
+        .footer-app_ad_icons--icon
+          = image_tag 'google-play.svg', class:'foreign_link'
+    .footer-app_ad--image
+      = image_tag 'download_content_pc.png', height:"260"
   //フッター最下ナビゲーション
   .footer-nav-box
     .footer-nav-box__footer-navs
@@ -20,6 +37,11 @@
           =link_to '公式ブログ'
         %li.footer-nav-box__footer-navs__about-mercari--item
           =link_to 'メルカリロゴ利用ガイドライン'
+        %li.footer-nav-box__footer-navs__about-mercari__links
+          =link_to "", class:'footer-nav-box__footer-navs__about-mercari__links--twitter' do
+            =fa_icon 'twitter 3x'
+          =link_to "", class:'footer-nav-box__footer-navs__about-mercari__links--facebook' do
+            =fa_icon 'facebook-square 3x'
       %ul.footer-nav-box__footer-navs__help-guide
         %li.footer-nav-box__footer-navs__help-guide--caption
           ='ヘルプ＆ガイド'
@@ -62,8 +84,13 @@
             =link_to '法令順守と犯罪抑止のために'
           %li.footer-nav-box__footer-navs__privacy-terms__right--item
             =link_to '返品・返金ポリシー'
-      %ul.footer-nav-box__footer-navs__country
-
+      %ul.footer-nav-box__footer-navs__region
+        %li.footer-nav-box__footer-navs__region--caption
+          ='国'
+        %li.footer-nav-box__footer-navs__region--item
+          =link_to '日本'
+        %li.footer-nav-box__footer-navs__region--item
+          =link_to 'United States'
   .footer-bottom
     .footer-logo
       = image_tag 'logo-white.svg'
