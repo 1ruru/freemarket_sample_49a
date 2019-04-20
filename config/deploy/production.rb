@@ -60,5 +60,5 @@
 #     # password: "please use keys"
 #   }
 server '18.182.139.35',
-  user: 'ec2-user',
+  user: 'iruru',
   roles: %w{app db web}
