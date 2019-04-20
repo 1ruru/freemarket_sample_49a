@@ -6,18 +6,20 @@
 @import "modules/main-main";
 @import "modules/main-footer";
 
-.header{
-  width: 1020px;
-  height: 100px;
-  margin: 0 auto;
-  background-color: aqua;
+@import "modules/main-header";
+@import "modules/main-main";
+@import "modules/slider";
+@import "header_l-left";
+
+html{
+  height: 100%;
+  body{
+    position: relative;
+    min-height: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    line-height: 1;
+    background: #F5F5F5;
+  }
 }
-
-.main{
-  width: 940px;
-  height: 200vh;
-  margin: 0 auto;
-  background-color: orange;
-}
-
-

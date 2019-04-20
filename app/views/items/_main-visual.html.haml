@@ -1,0 +1,28 @@
+.swiper-container
+  .swiper-wrapper
+    .swiper-slide
+      %img{:alt => "Swiper01", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQthSbY-xTcz1tFXirn4YQRx8zCmaMZ0AJyvbHrcJKH2ORUl_V1og"}/
+    .swiper-slide
+      %img{:alt => "Swiper02", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWrzF_4bEfOPwQmID6kNo97witB1dfigZ9sC4ZiPKt37CGSjVH"}/
+    .swiper-slide
+      %img{:alt => "Swiper03", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZTp31H6CWxf73H8w05fTwtzHUpvh23fYgJv_E9F9ZdDs2XFs4"}/
+  .swiper-pagination
+  .swiper-button-prev
+  .swiper-button-next
+:javascript
+  var swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      autoHeight: true,
+      disableOnInteraction: true
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+  });
