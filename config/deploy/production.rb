@@ -61,7 +61,7 @@
 #   }
 server '18.182.139.35',
   user: 'ec2-user',
-  roles: %w{app db web}
+  roles: %w{app db web},
   ssh_options: {
        port: 22,
        user: "ec2-user",
