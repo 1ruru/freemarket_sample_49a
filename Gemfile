@@ -86,3 +86,8 @@ gem "font-awesome-rails"
 gem 'pry-rails'
 
 gem "unicorn", "~> 5.5.0.1.g6836"
+
+#recaptcha
+gem 'recaptcha', require: "recaptcha/rails"
+#dotenv
+gem 'dotenv-rails'
