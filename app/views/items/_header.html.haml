@@ -11,19 +11,27 @@
       = render 'header_l-left'
 
       .l-right
-        %ul.header-user-nav
-          %li
-            %a.header-menu-link
-              =fa_icon 'bell',class:"icon-bell"
-              %span お知らせ
-          %li
-            %a.header-menu-link
-              =fa_icon 'check',class:"icon-check"
-              %span やることリスト
-          %li
-            %a.header-user-icon.header-menu-link{:href => "/"}
-              .user
-                .user--img
-                  %img{:alt => "", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "32"}/
-                .user--link
-                  マイページ
+        -if user_signed_in?
+          %ul.header-user-nav
+            %li
+              %a.header-menu-link
+                =fa_icon 'bell',class:"icon-bell"
+                %span お知らせ
+            %li
+              %a.header-menu-link
+                =fa_icon 'check',class:"icon-check"
+                %span やることリスト
+            %li
+              %a.header-user-icon.header-menu-link{:href => "/"}
+                .user
+                  .user--img
+                    %img{:alt => "", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "32"}/
+                  .user--link
+                    マイページ
+        -else
+          %ul.user-sign-nav
+            %li
+              =link_to 'ログイン', '', class: 'user-sign-nav--login'
+            %li
+              =link_to '新規会員登録', '', class: 'user-sign-nav--regist'
+          

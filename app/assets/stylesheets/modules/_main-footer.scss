@@ -64,6 +64,7 @@
         }
         &__links{
           margin-top: 20px;
+          display: flex;
           @include a-change();
           &--twitter{
             margin-right: 18px;
@@ -148,14 +149,17 @@
     width: 160px;
     background-color: #ea352c;
     border-radius: 80px;
-    &--name{
-      font-size: 24px;
-      padding-top: 24px;
-      text-align: center;
-    }
-    &--icon{
-      padding-top: 2px;
-      margin-left: 47px;
+    &__decolations{
+      position: relative;
+      &--name{
+        font-size: 24px;
+        padding-top: 24px;
+        text-align: center;
+      }
+      &--icon{
+        position: absolute;
+        top:60px;left: 50px;
+      }
     }
   }
 }
