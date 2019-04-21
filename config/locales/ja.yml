@@ -2,6 +2,17 @@
 ja:
   activerecord:
     attributes:
+      user:
+        nickname: ニックネーム
+        mail: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        family_name: 姓(全角)
+        family_name_kana: 姓カナ(全角)
+        first_name: 名(全角)
+        first_name_kana: 名カナ(全角)
+        birthday: 生年月日
+        phone: 携帯電話の番号
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
