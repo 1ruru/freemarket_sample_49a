@@ -1,0 +1,6 @@
+@mixin a-change($color: white, $decoration: none){
+  & a, & a:hover, & a:visited{
+    text-decoration: $decoration;
+    color: $color;
+  }
+}

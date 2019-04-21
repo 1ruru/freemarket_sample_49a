@@ -1,0 +1,78 @@
+
+// #dd {
+// 	text-align: center;
+
+	> ul {
+		width: 100%;
+		display: flex;
+		margin: 0 auto;
+		> li {
+			height: 70px;
+			flex: 1;
+			&:not(:last-child) {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	ul {
+		li {position: relative;}
+	}
+
+	a {
+		display: block;
+		transition: 0.3s;
+		&:hover {
+			text-decoration: none;
+		}
+  }
+
+	> ul > li > a {
+		padding: 19px 0 15px;
+		border-bottom: 5px solid #999;
+		&.active {
+			border-bottom-color: $color_mercari-red;
+		}
+	}
+
+  .icon-header-red{
+    color: $color_mercari-red;
+  }
+
+	.level1, .level2 {
+		width: 100%;
+		position: absolute;
+		z-index: 9;
+		a {
+			padding: 10px 15px;
+			background: lighten(black, 95%);
+		}
+		.active {
+			color: white;
+			background: $color_mercari-red;
+		}
+	}
+
+	.level1 {
+		top: 100%;
+		left: 0;
+	}
+
+	.level2 {
+		top: 0;
+		left: 100%;
+		border-left: 1px solid white;
+	}
+
+// 	.item-arrow {
+// 		&:after {
+// 			width: 7px;
+// 			height: 7px;
+// 			top: 50%;
+// 			right: 10px;
+// 			margin-top: -4px;
+// 			border-color: #37a0da;
+// 		}
+// 	}
+// }
+

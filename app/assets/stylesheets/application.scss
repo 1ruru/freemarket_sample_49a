@@ -1,2 +1,24 @@
-@import "bootstrap";
+@import "./reset";
 @import "font-awesome";
+@import "mixin/a_change";
+@import "variables/colors";
+@import "modules/main-header";
+@import "modules/main-main";
+@import "modules/main-footer";
+
+@import "modules/main-header";
+@import "modules/main-main";
+@import "modules/slider";
+@import "header_l-left";
+
+html{
+  height: 100%;
+  body{
+    position: relative;
+    min-height: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    line-height: 1;
+  }
+}

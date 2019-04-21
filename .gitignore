@@ -27,4 +27,5 @@
 /config/master.key
 
 public/uploads/*
-config/secrets.yml
+/config/credentials.yml.enc
+/config/secrets.yml
