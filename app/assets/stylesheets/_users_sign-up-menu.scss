@@ -1,0 +1,96 @@
+#users_sign_up_menu{
+  background: #eeeeee;
+  width: 100vw;
+    
+    .header{
+      height: 130px;
+      position: relative;
+      img{
+        position: absolute;
+        top: 0;bottom: 0;left: 0;right: 0;
+        margin: auto;
+      }
+    }
+    .main{
+      height: 410px;
+      width: 700px;
+      margin: 0 auto;
+      background: white;
+      &__nav{
+        line-height: 100px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bolder;
+        border-bottom: 1px solid #eeeeee;
+      }
+      &__menu{
+        height: 300px;
+        width: 320px;
+        margin: 60px auto;
+        &__item{
+          height: 50px;
+          background:#eeeeee;
+          line-height: 50px;
+          text-align: center;
+          position: relative;
+          margin-bottom: 18px;
+          text-decoration: none;
+          color: black;
+          &--icon{
+            position: absolute;
+            top: 0;left: 20px;
+            img{
+              margin-top: 10px;
+            }
+          }
+        }
+        &--mail:hover{
+          opacity: 0.7;
+        }
+        &--facebook{
+          background: #385185;
+          color: white;
+          .main__menu__item--icon{
+            margin-top: 6px;
+          }
+        }
+        &--google{
+          background: white;
+          box-sizing: border-box;
+          border:1px solid #aaaaaa;
+        }
+      }
+    }
+    .footer{
+      background: inherit;
+      &__links{
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        font-size: smaller;
+        padding-left: 40px;
+        &__link{
+          margin-right: 30px;
+          a{ color: black; }
+          a:hover{
+            opacity: 0.7;
+            text-decoration: underline;
+          }
+        }
+      }
+      &--logo{
+        width: 70px;
+        height: 54px;
+        margin: 30px auto 0;
+      }
+      &--copyright{
+        height:40px;
+        margin:  auto;
+        padding-bottom: 40px;
+        font-size: small;
+        text-align: center;
+        line-height: 40px;
+        color: black;
+      }
+    }
+}
