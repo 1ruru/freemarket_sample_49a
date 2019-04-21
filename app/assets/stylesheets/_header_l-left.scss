@@ -9,9 +9,9 @@
 		> li {
 			height: 70px;
 			flex: 1;
-			&:not(:last-child) {
-				margin-right: 5px;
-			}
+			// &:not(:last-child) {
+			// 	margin-right: 5px;
+			// }
 		}
 	}
 
@@ -28,7 +28,7 @@
   }
 
 	> ul > li > a {
-		padding: 19px 0 15px;
+		// padding: 19px 0 15px;
 		border-bottom: 5px solid #999;
 		&.active {
 			border-bottom-color: $color_mercari-red;
@@ -40,28 +40,38 @@
   }
 
 	.level1, .level2 {
-		width: 100%;
+    width: 200px;
 		position: absolute;
 		z-index: 9;
 		a {
-			padding: 10px 15px;
-			background: lighten(black, 95%);
+      height: 44px;
+      width: 200px;
+      line-height: 44px;
+      padding-left: 16px;
+      text-decoration: none;
+      background: white;
+      color: black;
 		}
-		.active {
-			color: white;
-			background: $color_mercari-red;
-		}
+		
 	}
 
 	.level1 {
 		top: 100%;
-		left: 0;
+    left: -25PX;
+    a:hover{
+      color: white;
+      background: $color_mercari-red;
+    }
 	}
 
 	.level2 {
-		top: 0;
-		left: 100%;
-		border-left: 1px solid white;
+    top: 0;
+		left: 200PX;
+    border-left: 1px solid white;
+    a:hover{
+      color: black;
+      background: #eeeeee;
+    }
 	}
 
 // 	.item-arrow {
