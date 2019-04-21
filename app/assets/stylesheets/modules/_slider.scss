@@ -1,15 +1,10 @@
 .main-visual{
     width: 100%;
-    height: 290px;
-    a{
-      img{
-        width: 100%;
-        height: 390px;
-      }
-    }
+    height: 390px;
   }
 
  .swiper-container {
+  height: 390px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -73,6 +68,10 @@
   -o-transition-property: transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
 .swiper-slide-invisible-blank {
   visibility: hidden;
@@ -615,9 +614,4 @@ button.swiper-pagination-bullet {
 .swiper-container-coverflow .swiper-wrapper {
   /* Windows 8 IE 10 fix */
   -ms-perspective: 1200px;
-}
-
-.swiper-slide img{
-  height: 290px;
-  width: 100%;
 }
