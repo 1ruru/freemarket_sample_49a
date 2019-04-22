@@ -1,0 +1,220 @@
+.main-content
+  .header.mypape_header
+    = render 'items/header',layout: 'application'
+  %nav.bread-crumbs
+    %ul
+      %li
+        %a
+          %span メルカリ
+        =fa_icon 'chevron-right',class:"icon-arrow"
+      %li.nowpage
+        %span マイページ
+
+  %main.mypage-container
+    .left-content
+      %nav.mypage-nav
+        %ul.mypage-nav-list
+          %li
+            %a.mypage-nav-list-item.mypage
+              マイページ
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              お知らせ
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              やることリスト
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              いいね！一覧
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              出品する
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 出品中
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 取引中
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 売却済み
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              購入した商品 - 取引中
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              購入した商品 - 過去の取引
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              ニュース一覧
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              評価一覧
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              ガイド
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              お問い合わせ
+              =fa_icon 'chevron-right',class:"icon-arrow"
+        %h3.mypage-nav-head メルペイ
+        %ul.mypage-nav-list
+          %li
+            %a.mypage-nav-list-item
+              売上・振込申請
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              ポイント
+              =fa_icon 'chevron-right',class:"icon-arrow"
+        %h3.mypage-nav-head 設定
+        %ul.mypage-nav-list
+          %li
+            %a.mypage-nav-list-item
+              プロフィール
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              発送元・お届け先住所変更
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              支払い方法
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              メール/パスワード
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              本人情報
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              電話番号の確認
+              =fa_icon 'chevron-right',class:"icon-arrow"
+          %li
+            %a.mypage-nav-list-item
+              ログアウト
+              =fa_icon 'chevron-right',class:"icon-arrow"
+
+    .right-content
+      %section.mypage-user-icon
+        %a
+          .mypage-icon
+            %img{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+          %h2.bold Kou
+          .mypage-number
+            %div.left
+              評価
+              %span.bold 6
+            %div.right
+              出品数
+              %span.bold 4
+      %section.mypage-tab-container-notification-todo
+        %ul.mypage-tabs
+          %li.tag1.active
+            %h3
+              %a
+                お知らせ
+          %li.tag2
+            %h3
+              %a
+                やることリスト
+        .tab-content
+          %ul.mypage-item-list
+            %li
+              %a.mypage-item-link
+                .mypage-icon
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                .mypage-item-body
+                  .mypage-item-text 《大好評》必ずもらえる買う買うキャンペーン開催中！
+                  .time
+                    =fa_icon 'clock-o',class:"icon-clock"
+                    %span 18 時間前
+                =fa_icon 'chevron-right',class:"icon-arrow"
+            %li
+              %a.mypage-item-link
+                .mypage-icon
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                .mypage-item-body
+                  .mypage-item-text 明日、5%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                  %time
+                    =fa_icon 'clock-o',class:"icon-clock"
+                    %span 20 時間前
+                =fa_icon 'chevron-right',class:"icon-arrow"
+            %li
+              %a.mypage-item-link
+                .mypage-icon
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                .mypage-item-body
+                  .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                  %time
+                    =fa_icon 'clock-o',class:"icon-clock"
+                    %span 2 日前
+                =fa_icon 'chevron-right',class:"icon-arrow"
+            %li
+              %a.mypage-item-link
+                .mypage-icon
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                .mypage-item-body
+                  .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                  %time
+                    =fa_icon 'clock-o',class:"icon-clock"
+                    %span 2 日前
+                =fa_icon 'chevron-right',class:"icon-arrow"
+            %li
+              %a.mypage-item-link
+                .mypage-icon
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                .mypage-item-body
+                  .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                  %time
+                    =fa_icon 'clock-o',class: "icon-clock"
+                    %span 2 日前
+                =fa_icon 'chevron-right',class:"icon-arrow"
+            %li.mypage-go-list
+              %a 一覧を見る
+          -# %ul#mypage-tab-todo.mypage-item-list.tab-pane
+            -# %li.mypage-item-not-found.bold 現在、やることリストはありません
+
+      %section.mypage-tab-container
+        %h2.mypage-tab-head 購入した商品
+        %ul.mypage-tabs
+          %li.active
+            %h3
+              %a
+                取引中
+          %li
+            %h3
+              %a
+                過去の取引
+        .tab-content
+          %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+            %li.mypage-item-not-found.bold 取引中の商品がありません
+          %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+            %li
+              %a.mypage-item-link
+                %figure
+                  %img.lazyload
+            %li
+              %a.mypage-item-link
+                %figure
+                  %img.lazyload
+            -# %li.mypage-go-list
+            -#   %a 一覧を見る
+  .footer
+    = render "items/footer",layout: 'application'

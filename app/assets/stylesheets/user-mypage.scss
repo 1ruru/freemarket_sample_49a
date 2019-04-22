@@ -1,0 +1,324 @@
+
+.bread-crumbs{
+  position: relative;
+  border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  height: 49px;
+  box-sizing: border-box;
+  ul{
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    display: flex;
+    box-sizing: border-box;
+    li{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      line-height: 1.2;
+      display: flex;
+      a{
+        color: #333
+        span{
+        }
+      }
+      .icon-arrow{
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+        display: inline-block;
+        line-height: 18px;
+
+      }
+    }
+    .nowpage{
+      font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+  }
+}
+.main-content{
+  background-color: #f5f5f5;
+  .header{
+    margin-bottom: 0px;
+    padding-bottom: 6px;
+
+  }
+  .mypage-container{
+    width: 1020px;
+    margin: 40px auto 0px;
+    display: flex;
+    padding-bottom: 30px;
+    .left-content{
+      width: 280px;
+      margin: 0 40px 0 0;
+      height: 1252px;
+      .mypage-nav{
+        .mypage-nav-list{
+          background-color: #ffffff;
+          box-sizing: border-box;
+          .mypage{
+            background-color: #eeeeee;
+          }
+          .mypage-nav-list-item{
+            display: block;
+            min-height: 48px;
+            padding-left: 16px;
+            font-size: 14px;
+            color: #333;
+            line-height: 48px;
+            border-bottom: 0.1px solid #f5f5f5;
+            box-sizing: border-box;
+            .icon-arrow{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              color: #ccc;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              -webkit-transition: all ease-out .2s;
+              transition: all ease-out .2s;
+            }
+          }
+        }
+        .mypage-nav-head{
+          margin: 40px 0 8px;
+          font-size: 16px;
+        }
+      }
+    }
+    .right-content{
+      height: 1189px;
+      width: 700px;
+      .mypage-user-icon{
+        height: 200px;
+        position: relative;
+        height: 155px;
+        padding: 20px;
+        background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?36555748);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        a{
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          color: #333;
+          text-decoration: none;
+          figure{
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+            img{
+              vertical-align: middle;
+            }
+          }
+          .bold{
+            margin: 8px 0 0;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+          }
+          .mypage-number{
+            margin: 8px 0 0;
+            font-size: 0;
+            div{
+              display: inline-block;
+              font-size: 14px;
+              span{
+                margin: 0 0 0 8px;
+                font-size: 16px;
+                font-weight: 600;
+              }
+            }
+            .right{
+              margin: 0 0 0 16px;
+            }
+          }
+        }
+      }
+      .mypage-tab-container-notification-todo{
+        margin: 0;
+        background: #fff;
+        .mypage-tabs{
+          border: 0;
+          background: #eee;
+          font-size: 0;
+          height: 74px;
+          .active{
+            background: #fff;
+            border-top: 2px solid #ea352d;
+          }
+          li{
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            h3{
+              font-size: 22px;
+              a{
+                position: relative;
+                display: block;
+                color: #333;
+                font-size: 16px;
+                line-height: 74px;
+              }
+            }
+          }
+        }
+        .tab-content{
+          .mypage-item-list{
+            display: block;
+            li{
+              border-bottom: 1px solid #eee;
+              position: relative;
+              display: flex;
+              .mypage-item-link{
+                display: block;
+                height: 80px;
+                padding: 16px;
+                color: #333;
+                box-sizing: border-box;
+                .mypage-icon{
+                  position: relative;
+                  overflow: hidden;
+                  float: left;
+                  width: 48px;
+                  height: 48px;
+                  .lazyloaded{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 100%;
+                  }
+                }
+                .mypage-item-body{
+                  margin: 0 40px 0 68px;
+                  .mypage-item-text{
+                    overflow: hidden;
+                    display: block;
+                    display: -webkit-box;
+                    max-height: 4.4em;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    line-height: 1.5;
+                  }
+                  .time{
+                    display: inline-block;
+                    color: #888;
+                    .icom-clock{
+                      margin: 0 8px 0 0;
+                      font-size: 20;
+                      vertical-align: middle;
+                      color: red;
+                    }
+                    span{
+                      vertical-align: middle;
+                    }
+                  }
+                }
+                .icon-arrow{
+                  position: absolute;
+                  top: 50%;
+                  right: 15px;
+                  color: #ccc;
+                  -webkit-transform: translate(0, -50%);
+                  transform: translate(0, -50%);
+                  -webkit-transition: all ease-out .2s;
+                  transition: all ease-out .2s;
+                }
+              }
+            }
+            .mypage-go-list{
+              height: 88px;
+              padding: 16px;
+              box-sizing: border-box;
+              width: 100%;
+              a{
+                display: block;
+                height: 56px;
+                color: #333;
+                line-height: 56px;
+                text-align: center;
+                width: 100%;
+                background: #eee;
+                margin: 0 auto;
+                &:hover{
+                  background: #fafafa;
+                }
+              }
+            }
+          }
+        }
+      }
+      .mypage-tab-container{
+        margin: 40px 0 0;
+        background: #fff;
+        height: 382px;
+        .mypage-tab-head{
+          height: 72px;
+          padding: 0 2%;
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+        }
+        .mypage-tabs{
+          border: 0;
+          background: #eee;
+          font-size: 0;
+          height: 74px;
+          .active{
+            background: #fff;
+            border-top: 2px solid #ea352d;
+          }
+          li{
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            h3{
+              font-size: 22px;
+              a{
+                position: relative;
+                display: block;
+                color: #333;
+                font-size: 16px;
+                line-height: 74px;
+              }
+            }
+          }
+        }
+        .tab-content{
+          height: 238px;
+        }
+      }
+    }
+  }
+}
+.mypage-item-not-found.bold{
+  background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?36555748);
+  padding: 160px 0 60px;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
