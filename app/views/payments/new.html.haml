@@ -1,0 +1,20 @@
+#payments__new
+  = form_with model:[current_user, @payment], local: true do |f|
+    %h2 支払い方法(クレジットカード)
+    .field
+      = f.label :number
+      %br/
+      = f.text_field :number, placeholder: "例)0000111122223333"
+    .field
+      = f.label :cvc
+      %br/
+      = f.text_field :cvc, placeholder: "例)456"
+      %br/
+      %label カード裏面に記載されている3桁または4桁のコード
+    .field
+      = f.label :expiration_date
+      %br/
+      = f.date_select :expiration_date, {discard_day: true}, {}
+    
+    .actions
+      =f.submit '次へ進む'

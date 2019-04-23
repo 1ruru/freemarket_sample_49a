@@ -5,11 +5,11 @@
   color: white;
   .footer-app_ad{
     height: 260px;
-    width: 100vw;
+    width: calc(100vw - 30%);
     background-image: url(footer_bg.jpg);
     background-size: cover;
-    padding-left: 21%;
     display: flex;
+    padding-left: 30%;
     &--text{
       padding-top: 54px;
       font-size: 22px;
@@ -143,6 +143,7 @@
 
   .footer-sell-btn{
     position: fixed;
+    z-index: 9999;
     bottom: 30px; right: 30px;
     display: inline-block;
     height: 160px;
