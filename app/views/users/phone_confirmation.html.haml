@@ -1,0 +1,6 @@
+#users__phone_confirmation
+  = form_with url: phone_authenticated_user_path(current_user), local: true, method: :put  do |f|
+    =f.text_field :verification_code
+    SMS認証ボックス
+    .actions
+      =f.submit "SMS認証"

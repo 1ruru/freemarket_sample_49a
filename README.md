@@ -13,8 +13,10 @@
 | family_name_kana      | string   | null: false                                |
 | first_name_kana       | string   | null: false                                |
 | birthday              | datetime | null: false                                |
-| phone                 | string   | null: false                                |
+| phone                 | string   |                                            |
 | sex                   | string   |                                            |
+| verification_code     | string   |                                            |
+| authenticated         | boolean  | default: false                             |
 
 ### Association
 
@@ -56,13 +58,13 @@
 
 ## payments table
 
-| Column          | Type     | Option                    |
-|-----------------|----------|---------------------------|
-| number          | string   | null: false, unique: true |
-| cvc             | string   | null: false               |
-| expiration_date | datetime | null: false               |
-| name            | string   | null: false               |
-| user             | references | null: false, foreign_key: true |
+| Column          | Type       | Option                         |
+|-----------------|------------|--------------------------------|
+| number          | string     | null: false, unique: true      |
+| cvc             | string     | null: false                    |
+| expiration_date | date       | null: false                    |
+<!-- | name            | string     | null: false                    | -->
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 

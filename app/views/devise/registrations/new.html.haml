@@ -1,4 +1,4 @@
-#users_registrations_new
+#users__registrations_new
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     #form--user-info
@@ -41,31 +41,8 @@
         = f.date_select :birthday, {}, {}
       .field
         =recaptcha_tags
-      .field
-        %button#go_form--phone
-          次へ進む
-        %label
-
-    #form--phone
-      %h2 電話番号の確認
-      .field
-        = f.label :phone
-        %br/
-        = f.text_field :phone, placeholder: "携帯電話の番号を入力"
-        %br/
-        %label
-          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      .field
-        %button#btn_sms-confirmation
-          SMSを送信する
-        %br/
-        %label
-          ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-      #sms-confirmation
-        SMS認証ボックス
       .actions
-        = f.submit "SMS認証"
-      =link_to '電話番号の確認が必要な理由', ''
+        =f.submit '次へ進む'
 
     -# #form--address
     -#   %h2 お届け先住所の入力

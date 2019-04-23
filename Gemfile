@@ -91,3 +91,6 @@ gem "unicorn", "~> 5.5.0.1.g6836"
 gem 'recaptcha', require: "recaptcha/rails"
 #dotenv
 gem 'dotenv-rails'
+
+#phone-number confirmation gem
+gem 'twilio-ruby', '~> 5.22.1'
