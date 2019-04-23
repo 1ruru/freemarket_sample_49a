@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'items#index'
+  get 'items/exhibit' => 'items#exhibit'
   resources :users do
     get 'sign_up_menu', on: :collection
     get 'phone_registration', on: :collection
