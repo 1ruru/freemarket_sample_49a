@@ -1,0 +1,23 @@
+#users__phone_registration
+  =form_for current_user, url: phone_confirmation_user_path(current_user), local: true, method: :put do |f|
+    %h2 電話番号の確認
+    .field
+      = f.label :phone
+      %br/
+      = f.text_field :phone, placeholder: "携帯電話の番号を入力"
+      %br/
+      %label
+        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+    .actions
+      = f.submit "SMSを送信する"
+      %br/
+      %label
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+    -# .field
+    -#   %button#btn_sms-confirmation
+    -#     SMSを送信する
+    -# #sms-confirmation
+    -#   SMS認証ボックス
+    -# .actions
+    -#   = f.submit "SMS認証"
+    =link_to '電話番号の確認が必要な理由', ''
