@@ -8,7 +8,7 @@
         %input.input-default{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
         =fa_icon 'search',class:"icon-search"
     .header-nav-box
-      = render 'header_l-left'
+      = render 'partial/header_l-left'
 
       .l-right
         -if user_signed_in?
@@ -34,4 +34,3 @@
               =link_to 'ログイン', new_user_session_path(), class: 'user-sign-nav--login'
             %li
               =link_to '新規会員登録', '/users/sign_up_menu', class: 'user-sign-nav--regist'
-          
