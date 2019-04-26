@@ -4,4 +4,7 @@ class ItemsController < ApplicationController
 
   def exhibit
   end
+
+  def purchase
+  end
 end
