@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'items#index'
-  get 'items/exhibit' => 'items#exhibit'
+
   resources :users do
     get 'sign_up_menu', on: :collection
     get 'phone_registration', on: :collection
@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     resources :addresses
     resources :payments
   end
-  resources :items
+  resources :items do
+    get 'items/exhibit' => 'items#exhibit', on: :collection
+    get 'items/purchase' => 'items#purchase', on: :collection
+  end
 end
