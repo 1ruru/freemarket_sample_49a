@@ -17,6 +17,11 @@
 | sex                   | string   |                                            |
 | verification_code     | string   |                                            |
 | authenticated         | boolean  | default: false                             |
+| postal_code           | string   |                                            |
+| prefecture            | string   |                                            |
+| city                  | string   |                                            |
+| house                 | string   |                                            |
+| building              | string   |                                            |
 
 ### Association
 

@@ -1,0 +1,43 @@
+#users_payment
+  .main-content
+    .header.mypape_header
+      = render 'items/header',layout: 'application'
+    %nav.bread-crumbs
+      %ul
+        %li
+          %a
+            %span メルカリ
+          =fa_icon 'chevron-right',class:"icon-arrow"
+        %li.nowpage
+          %span マイページ
+
+    %main.mypage-container
+      //left menu
+      = render partial: 'mypage-left'
+
+      .right-content
+        .heading
+          支払い方法
+        .main
+          .payments
+            クレジットカード一覧
+            //クレジットカードの時しか知りましぇん_(┐「ε:)_
+            .payment
+              .payment__credit_card
+                .payment__credit_card--icon
+                  = image_tag "mc_vrt_pos.svg", width:"32px"
+                .payment__credit_card--number
+                  ='************0123'
+                .payment__credit_card--expiration_date
+                  ='01 / 20'
+                =link_to '削除する', '', class:'payment__credit_card--btn'
+
+
+
+        .bottom
+          =link_to '',class:"nav-link link-mercari-blue" do
+            ='支払い方法について'
+            =fa_icon 'chevron-right',class:"icon-arrow"
+
+    .footer
+      = render "items/footer",layout: 'application'

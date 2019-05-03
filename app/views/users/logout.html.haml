@@ -1,0 +1,23 @@
+#users_logout
+  .main-content
+    .header.mypape_header
+      = render 'items/header',layout: 'application'
+    %nav.bread-crumbs
+      %ul
+        %li
+          %a
+            %span メルカリ
+          =fa_icon 'chevron-right',class:"icon-arrow"
+        %li.nowpage
+          %span マイページ
+
+    %main.mypage-container
+      //left menu
+      = render partial: 'mypage-left'
+
+      .right-content
+        .main
+          =link_to 'ログアウト', destroy_user_session_path(current_user), method: :delete , class:"btn-logout"
+
+    .footer
+      = render "items/footer",layout: 'application'

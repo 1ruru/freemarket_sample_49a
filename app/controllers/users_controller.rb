@@ -33,4 +33,18 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def information
+    @address = current_user.addresses.first()
+  end
+
+  def information_update
+    
+  end
+
+  def logout
+  end
+
+  def payment
+  end
 end

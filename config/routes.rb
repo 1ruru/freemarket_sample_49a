@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     get 'sign_up_menu', on: :collection
     get 'phone_registration', on: :collection
     get 'complete_registration', on: :collection
+    get 'information', on: :collection
+    get 'logout', on: :collection
+    get 'payment', on: :collection
+    put 'information_update', on: :member
     put 'phone_confirmation', on: :member
     put 'phone_authenticated', on: :member
     resources :addresses

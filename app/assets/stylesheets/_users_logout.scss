@@ -1,0 +1,20 @@
+#users_logout{
+  .right-content{
+    background: white;
+    height: 174px;
+    .main{
+      width: 320px;
+      margin: 0 auto;
+      .btn-logout{
+        width: 320px;
+        height: 50px;
+        background: $color_mercari-red;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        line-height: 50px;
+        margin-top: 62px;
+      }
+    }
+  }
+}
