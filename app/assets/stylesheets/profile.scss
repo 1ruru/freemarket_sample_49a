@@ -1,0 +1,79 @@
+.user_profile{
+  &-header{
+    &-title{
+      height: 50px;
+      background-color: #ffffff;
+      text-align: center;
+      margin: auto 0;
+      font-size: 24px;
+      padding: 8px 24px;
+      box-sizing: border-box;
+    }
+    .user_profile-content{
+      form{
+        .user_profile-input{
+          display: none;
+        }
+        .user_profile-icon{
+          padding: 72px 16px 24px;
+          background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?36555748);
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: flex;
+          justify-content: center;
+          &_image{
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0px;
+            img{
+
+            }
+          }
+          .input-default{
+            width: 220px;
+            margin: 5px 0 0 8px;
+            vertical-align: middle;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            box-sizing: border-box;
+          }
+        }
+        .user_profile-content-main{
+          padding: 40px 16px;
+          background-color: #ffffff;
+          .textarea-default{
+            height: 216px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+            box-sizing: border-box;
+          }
+          input{
+
+          }
+          .btn-default{
+            margin: 16px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            line-height: 48px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

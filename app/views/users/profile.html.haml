@@ -1,0 +1,36 @@
+.main-content.user_profile
+  .header.mypape_header
+    = render 'items/header',layout: 'application'
+  %nav.bread-crumbs
+    %ul
+      %li
+        %a
+          %span メルカリ
+        =fa_icon 'chevron-right',class:"icon-arrow"
+      %li.nowpage
+        %span マイページ
+
+
+  %main.mypage-container.user_profile
+    = render 'mypage-left'
+
+    .right-content.user_profile-header
+      %h2.user_profile-header-title プロフィール
+      %section.user_profile-content
+        %form
+          %input.user_profile-input
+          .user_profile-icon
+            %figure.user_profile-icon_image
+              %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+            %input.input-default{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "Kou"}/
+          .user_profile-content-main
+            %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
+            %button.btn-default.btn-red{:type => "submit"} 変更する
+
+
+
+  .footer
+    = render "items/footer",layout: 'application'
+
+

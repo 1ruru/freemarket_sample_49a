@@ -1,0 +1,70 @@
+.single-container
+  %header.single-header
+    %h1
+      %a{:href => "/"}
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1073571291"}/
+
+%main.single-main
+  %section.single-main_content
+    %h2.single-head 購入を確定しますか？
+    %section.buy-content
+      .buy-content-inner
+        .buy-item-image
+          = image_tag 'neko1.jpg'
+        %p.buy-item-name moussy クラッシュデニム25
+        %form.buy-form
+          %p.buy-price
+            ¥ 3,500
+            %span.item-shipping-fee 送料込み
+          %p.point
+            ポイントはありません
+          %ul.buy-price-table
+            %li.buy-price-row
+              .buy-price-left 支払い金額
+              .buy-price-rigth
+                %span ¥ 3,500
+          %button.buy-btn{:disabled => "disabled", :type => "submit"} 購入する
+          %input#user_info_is_not_complete{:type => "hidden"}/
+    %section.buy-user-info
+      .buy-user-inner
+        %h3 配送先
+        %address.buy-user-info-text
+          〒612-8136
+          %br/
+          京都府 京都市伏見区
+          向島四ツ谷池
+          市営住宅14ー1 5ー8ー208
+          %br/
+          遠藤 康平
+        %p.buy-user-info-edit
+          %span 変更する
+          = fa_icon 'chevron-right',class:"icon-arrow"
+    %section.buy-content-payment
+      .buy-content-inner
+        %h3 支払い方法
+        %p.buy-user-info-text
+          %br/
+          \/
+        %a.buy-user-info-fix
+          %span 変更する
+          = fa_icon 'chevron-right',class:"icon-arrow"
+
+
+
+
+
+
+
+  %footer.single-footer
+    %nav
+      %ul.footer-text
+        %li
+          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.single-footer-logo
+      %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1073571291", :width => "80"}/
+    %p
+      %small © 2019 Mercari
