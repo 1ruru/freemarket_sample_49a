@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'complete_registration', on: :collection
     put 'phone_confirmation', on: :member
     put 'phone_authenticated', on: :member
+    get 'profile', on: :collection
     resources :addresses
     resources :payments
   end
