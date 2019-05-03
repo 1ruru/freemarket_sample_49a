@@ -46,6 +46,8 @@ class UsersController < ApplicationController
   end
 
   def payment
+    
+  end
 
   def profile
 

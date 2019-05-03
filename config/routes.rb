@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :payments
   end
   resources :items do
-    get 'items/exhibit' => 'items#exhibit', on: :collection
-    get 'items/purchase' => 'items#purchase', on: :collection
+    get 'exhibit', on: :collection
+    get 'purchase', on: :collection
   end
 end
