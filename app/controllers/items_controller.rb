@@ -5,6 +5,10 @@ class ItemsController < ApplicationController
   def exhibit
   end
 
+  def show
+    # @item = Item.find(params[:id])
+  end
+  
   def purchase
   end
 end

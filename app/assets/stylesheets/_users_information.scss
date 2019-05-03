@@ -1,0 +1,66 @@
+#users_information{
+  .right-content{
+    background: white;
+    .heading{
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      font-weight: bolder;
+      border-bottom: 1px solid #eeeeee;
+      margin-bottom: 70px;
+    }
+    .main{
+      width: 574px;
+      margin: 0 auto;
+      .nav{
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .edit-information{
+    .form-element{
+      .input-any{
+        display: inline-block;
+        width: 35px;
+        height: 20px;
+        background: #bbbbbb;
+        color: white;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+      }
+      label{
+        font-weight: bolder;
+      }
+      input[type="text"]{
+        width: 552px;
+        height: 48px;
+        padding-left: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        margin-top: 4px;
+      }
+      select{
+        width: 572px;
+        height: 48px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        margin-top: 4px;
+        background: white;
+      }
+      input[type="submit"]{
+        width: 574px;
+        height: 50px;
+        margin-top: 30px;
+        border: none;
+        color: white;
+        border-radius: 0;
+        background: $color_mercari-red
+      }
+      margin-bottom: 30px;
+    }
+  }
+}

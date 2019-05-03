@@ -1,0 +1,60 @@
+#users_payment{
+  .right-content{
+    background: white;
+    height: auto;
+    margin-bottom: auto;
+    .heading{
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      font-weight: bolder;
+      border-bottom: 1px solid #eeeeee;
+      margin-bottom: 70px;
+    }
+    .main{
+      width: 574px;
+      margin: 0 auto;
+      border-bottom: 1px solid #eeeeee;
+      .nav{
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .payments{
+    width: 320px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: bolder;
+    .payment{
+      text-align: left;
+      font-weight: normal;
+      height: 70px;
+      margin: 24px 0;
+      .payment__credit_card{
+        position: relative;
+        .payment__credit_card--btn{
+          text-decoration: none;
+          color: $color_mercari-red;
+          font-size: 15px;
+          border: 1px solid $color_mercari-red;
+          border-radius: 4px;
+          padding: 0 4px;
+          position: absolute;
+          top: 0;right: 0;
+        }
+      }
+    }
+  }
+  .bottom{
+    height: 120px;
+    width: 574px;
+    margin: 0 auto;
+    position: relative;
+    .nav-link{
+      position: absolute;
+      right: 0;bottom: 50%;
+    }
+  }
+}
