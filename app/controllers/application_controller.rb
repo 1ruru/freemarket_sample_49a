@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
+  def set_search
+    @search = Item.ransack(params[:q])
+  end
+
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == "exp49" && password == "6517"

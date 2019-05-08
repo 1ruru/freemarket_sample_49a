@@ -14,18 +14,16 @@
                 %h3.sell-upload-head
                   出品画像
                   %span.form-require 必須
-                %p 最大10枚までアップロードできます
+                %div#itemimage_uproad_over{style: "display:none"}  アップロードできる画像は10枚までです。
+                %div#itemimage_uproad_none{style: "display:none"}  画像がありません
                 .sell-dropbox-container
                   .sell-upload-items-container
                     .sell-upload-items
                       %ul
-                  .sell-upload-drop-box
+                  .sell-upload-drop-box#itemnew_img_field__method#itemnew_img_field
                     = f.label :image_id,class:"fail-photo" do
-                      %input.sell-upload-drop-file#input_id{ type: "file", multiple: "multiple",name: "image"}
-                      %pre.visible-pc
-                        :preserve
-                          ドラッグアンドドロップ
-                          またはクリックしてファイルをアップロード
+                      = f.file_field :image_id, class:"sell-upload-drop-file"
+                      -# %img#file-preview
               .sell-content
                 .form-group
                   %label
@@ -47,9 +45,9 @@
                       %span.form-require 必須
                     %div
                       .select-wrap
-                        = f.select :category_id,Category.all.where(parent_id: nil).map{|c| [c.name, c.id]},{include_blank: "---"},{class:'select-default'}
-                        -# = f.select :category_id,{},{include_blank: "---"},{class: "select-default" ,style: "display:none"}
-                        -# = f.select :category_id,{},{include_blank: "---"},{class: "select-default" ,style: "display:none"}
+                        = f.select :category_id,Category.all.where(parent_id: nil).map{|c| [c.name, c.id]},{include_blank: "---"},{class:'select-default', id:'selectitembox'}
+                        = f.select :category_id,{},{include_blank: "---"},{class: "select-default", id:'selectitembox1',style: 'display:none' }
+                        = f.select :category_id,Category.all.where(parent_id: nil).map{|c| [c.name, c.id]},{include_blank: "---"},{class: "select-default",id:"selectitembox2" ,style: "display:none"}
                         %i.icon-arrow-bottom
                   .form-group
                     %label
@@ -140,19 +138,22 @@
 
 
 
-:javascript
-  $(function() {
-   $(".input-default").on('keyup', $('.input-default'),function(){
-     var price = $(this).val();
-     var mercari_margin = price * 0.1 ;
-     var mercari_margin = Math.floor(mercari_margin);
-     var saler_margin = price-mercari_margin;
-     if(price >= 300){
-       $('#mercari_margin').text("¥" + mercari_margin);
-       $('#saler_margin').text("¥" + saler_margin);
-     }else{
-       $('#mercari_margin').text("-");
-       $('#saler_margin').text("-");
-     }
-   })
-  });
+
+
+  :javascript
+    $(function() {
+    $(".input-default").on('keyup', $('.input-default'),function(){
+      var price = $(this).val();
+      var mercari_margin = price * 0.1 ;
+      var mercari_margin = Math.floor(mercari_margin);
+      var saler_margin = price-mercari_margin;
+      if(price >= 300){
+        $('#mercari_margin').text("¥" + mercari_margin);
+        $('#saler_margin').text("¥" + saler_margin);
+      }else{
+        $('#mercari_margin').text("-");
+        $('#saler_margin').text("-");
+      }
+    })
+    });
+    
