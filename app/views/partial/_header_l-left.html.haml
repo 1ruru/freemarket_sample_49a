@@ -1,187 +1,272 @@
-%nav#dd.l-left
-  %ul.header-nav
-    %li
-      %h2
-        %a.header-nav-root
-          =fa_icon 'list',class:"icon-list icon-header-red"
-          %span カテゴリーから探す
-      %ul.level1
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストAA
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストA
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストB
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストC
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストD
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-        %li
-          %a.item-arrow{:href => ""} ダミーテキストE
-          %ul.level2
-            %li
-              %a{:href => ""} ダミーテキスト1
-            %li
-              %a{:href => ""} ダミーテキスト2
-            %li
-              %a{:href => ""} ダミーテキスト3
-            %li
-              %a{:href => ""} ダミーテキスト4
-            %li
-              %a{:href => ""} ダミーテキスト5
-            %li
-              %a{:href => ""} ダミーテキスト6
-            %li
-              %a{:href => ""} ダミーテキスト7
-            %li
-              %a{:href => ""} ダミーテキスト8
-    -# %li
-    -#   %a{:href => ""} にゃー
-    -#   %ul.level1
-    -#     %li
-    -#       %a{:href => ""} ダミーテキスト
-    -#     %li
-    -#       %a.item-arrow{:href => ""} ダミーテキスト
-    -#       %ul.level2
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a.item-arrow{:href => ""} ダミーテキスト
-    -#           %ul.level2
-    -#             %li
-    -#               %a{:href => ""} ダミーテキスト
-    -#             %li
-    -#               %a{:href => ""} ダミーテキスト
-    -#             %li
-    -#               %a{:href => ""} ダミーテキスト
-    -#             %li
-    -#               %a{:href => ""} ダミーテキストダミーテキスト
-    -#             %li
-    -#               %a{:href => ""} ダミーテキストダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#     %li
-    -#       %a.item-arrow{:href => ""} ダミーテキスト
-    -#       %ul.level2
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-    -#         %li
-    -#           %a{:href => ""} ダミーテキスト
-      / /#dd-01
+.header-box
+  .header-box__bottom
+    %ul#dropmenu.header-box__bottom__left
+      %li
+        = link_to  "カテゴリーから探す ",  "# ", id: "search-category ", class: "fa fa-list-ul "
+        %ul#sample
+          %li
+            = link_to  "レディース ",  "# "
+            %ul#sample
+              %li#sample
+                = link_to  "トップス ",  "# "
+                %ul#sample
+                  %li#sample
+                    = link_to  "Tシャツ/カットソー(半袖/袖なし) ",  "# "
+                  %li#sample
+                    = link_to  "Tシャツ/カットソー(七分/長袖) ",  "# "
+                  %li#sample
+                    = link_to  "シャツ/ブラウス(半袖/袖なし) ",  "# "
+                  %li#sample
+                    = link_to  "シャツ/ブラウス(七分/長袖) ",  "# "
+                  %li#sample
+                    = link_to  "ポロシャツ ",  "# "
+                  %li#sample
+                    = link_to  "キャミソール ",  "# "
+                  %li#sample
+                    = link_to  "タンクトップ ",  "# "
+                  %li#sample
+                    = link_to  "ホルターネック ",  "# "
+                  %li#sample
+                    = link_to  "ニット/セーター ",  "# "
+                  %li#sample
+                    = link_to  "チュニック ",  "# "
+                  %li#sample
+                    = link_to  "カーディガン/ボレロ ",  "# "
+                  %li#sample
+                    = link_to  "アンサンブル ",  "# "
+              %li#sample
+                = link_to  "ジャケット/アウター ",  "# "
+                %ul#sample
+                  %li#sample
+                    = link_to  "テーラードジャケット ",  "# "
+                  %li#sample
+                    = link_to  "ノーカラージャケット ",  "# "
+                  %li#sample
+                    = link_to  "Gジャン/デニムジャケット ",  "# "
+                  %li#sample
+                    = link_to  "レザージャケット ",  "# "
+                  %li#sample
+                    = link_to  "ダウンジャケット ",  "# "
+                  %li#sample
+                    = link_to  "ライダースジャケット ",  "# "
+                  %li#sample
+                    = link_to  "ミリタリージャケット ",  "# "
+                  %li#sample
+                    = link_to  "ダウンベスト ",  "# "
+                  %li#sample
+                    = link_to  "ジャンパー/ブルゾン ",  "# "
+                  %li#sample
+                    = link_to  "ポンチョ ",  "# "
+                  %li#sample
+                    = link_to  "ロングコート ",  "# "
+                  %li#sample
+                    = link_to  "トレンチコート ",  "# "
+              %li#sample
+                = link_to  "パンツ ",  "# "
+                %ul#sample
+                  %li#sample
+                    = link_to  "デニム/ジーンズ ",  "# "
+                  %li#sample
+                    = link_to  "ショートパンツ ",  "# "
+                  %li#sample
+                    = link_to  "カジュアルスーツ ",  "# "
+                  %li#sample
+                    = link_to  "ハーフパンツ ",  "# "
+                  %li#sample
+                    = link_to  "チノパン ",  "# "
+                  %li#sample
+                    = link_to  "ワークパンツ/カーゴパンツ ",  "# "
+                  %li#sample
+                    = link_to  "クロップドパンツ ",  "# "
+                  %li#sample
+                    = link_to  "サロペット/オーバーオール ",  "# "
+                  %li#sample
+                    = link_to  "オールインワン ",  "# "
+                  %li#sample
+                    = link_to  "サルエルパンツ ",  "# "
+                  %li#sample
+                    = link_to  "ガウチョパンツ ",  "# "
+                  %li#sample
+                    = link_to  "その他 ",  "# "
+              %li#sample
+                = link_to  "スカート ",  "# "
+                %ul#sample
+                  %li#sample
+                    = link_to  "ミニスカート ",  "# "
+                  %li#sample
+                    = link_to  "ひざ丈スカート ",  "# "
+                  %li#sample
+                    = link_to  "ロングスカート ",  "# "
+                  %li#sample
+                    = link_to  "キュロット ",  "# "
+                  %li
+                    = link_to  "その他 ",  "# "
+              %li
+                = link_to  "ワンピース ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "ミニワンピース ",  "# "
+                  %li
+                    = link_to  "ひざ丈ワンピース ",  "# "
+                  %li
+                    = link_to  "ロングワンピース ",  "# "
+                  %li
+                    = link_to  "その他 ",  "# "
+              %li
+                = link_to  "靴 ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "ハイヒール/パンプス ",  "# "
+                  %li
+                    = link_to  "ブーツ ",  "# "
+                  %li
+                    = link_to  "サンダル ",  "# "
+                  %li
+                    = link_to  "スニーカー ",  "# "
+                  %li
+                    = link_to  "ミュール ",  "# "
+                  %li
+                    = link_to  "モカシン ",  "# "
+                  %li
+                    = link_to  "ローファー/革靴 ",  "# "
+                  %li
+                    = link_to  "フラットシューズ/バレエシューズ ",  "# "
+                  %li
+                    = link_to  "長靴/レインシューズ ",  "# "
+                  %li
+                    = link_to  "その他 ",  "# "
+              %li
+                = link_to  "ルームウェア ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "パジャマ ",  "# "
+                  %li
+                    = link_to  "ルームウェア ",  "# "
+              %li
+                = link_to  "レッグウェア ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "ソックス ",  "# "
+                  %li
+                    = link_to  "スパッツ/レギンス ",  "# "
+                  %li
+                    = link_to  "ストッキング/タイツ ",  "# "
+                  %li
+                    = link_to  "レッグウォーマー ",  "# "
+                  %li
+                    = link_to  "その他 ",  "# "
+              %li
+                = link_to  "帽子 ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "ニットキャップ/ビーニー ",  "# "
+                  %li
+                    = link_to  "ハット ",  "# "
+                  %li
+                    = link_to  "ハンチング/ベレー帽 ",  "# "
+                  %li
+                    = link_to  "キャップ ",  "# "
+                  %li
+                    = link_to  "キャスケット ",  "# "
+                  %li
+                    = link_to  "麦わら帽子 ",  "# "
+                  %li
+                    = link_to  "その他 ",  "# "
 
-    %li
-      %h2
-        %a.header-nav-root
-          =fa_icon 'tag',class:"icon-tag icon-header-red"
-          %span ブランドから探す
-
-%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"}
-:javascript
-  $(function() {
-    $("#dd li ul").hide();
-    $("#dd li").hover(function() {
-      $(">ul", this).stop(true, true).slideDown("fast");
-      $(">a", this).addClass("active");
-    },
-    function() {
-      $(">ul", this).stop(true, true).slideUp("fast");
-      $(">a", this).removeClass("active");
-    });
-  });
+          %li
+            = link_to  "メンズ ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "ベビー・キッズ ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+                %ul#sample
+                  %li
+                    = link_to  "サブサブサブメニュー ",  "# "
+                  %li
+                    = link_to  "サブサブサブメニュー ",  "# "
+                  %li
+                    = link_to  "サブサブサブメニュー ",  "# "
+                  %li
+                    = link_to  "サブサブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "インテリア・住まい・小物 ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "本・音楽・ゲーム ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "インテリア・住まい・小物 ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "おもちゃ・ホビー・グッズ ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+          %li
+            = link_to  "インテリア・住まい・小物 ",  "# "
+            %ul#sample
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+              %li
+                = link_to  "サブサブメニュー ",  "# "
+      %li
+        = link_to  "ブランドから探す ",  "# ", id: "search-brand ", class: "fa fa-tag "
+        %ul#sample
+          %li
+            = link_to  "サブメニュー ",  "# "
+          %li
+            = link_to  "サブメニュー ",  "# "
+          %li
+            = link_to  "サブメニュー ",  "# "
+          %li
+            = link_to  "サブメニュー ",  "# "

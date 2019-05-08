@@ -10,6 +10,7 @@
     .header-nav-box
       = render 'partial/header_l-left'
 
+
       .l-right
         -if user_signed_in?
           %ul.header-user-nav
@@ -34,3 +35,9 @@
               =link_to 'ログイン', new_user_session_path(), class: 'user-sign-nav--login'
             %li
               =link_to '新規会員登録', '/users/sign_up_menu', class: 'user-sign-nav--regist'
+
+:javascript
+  $(function(){
+    console.log('aaaaa');
+    $("#sample ul").matchHeight();
+  });

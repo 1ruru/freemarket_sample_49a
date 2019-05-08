@@ -1,88 +1,260 @@
-
-// #dd {
-// 	text-align: center;
-
-	> ul {
-		width: 100%;
-		display: flex;
-		margin: 0 auto;
-		> li {
-			height: 70px;
-			flex: 1;
-			// &:not(:last-child) {
-			// 	margin-right: 5px;
-			// }
-		}
-	}
-
-	ul {
-		li {position: relative;}
-	}
-
-	a {
-		display: block;
-		transition: 0.3s;
-		&:hover {
-			text-decoration: none;
-		}
-  }
-
-	> ul > li > a {
-		// padding: 19px 0 15px;
-		border-bottom: 5px solid #999;
-		&.active {
-			border-bottom-color: $color_mercari-red;
-		}
-	}
-
-  .icon-header-red{
-    color: $color_mercari-red;
-  }
-
-	.level1, .level2 {
-    width: 200px;
-		position: absolute;
-		z-index: 9;
-		a {
-      height: 44px;
-      width: 200px;
-      line-height: 44px;
-      padding-left: 16px;
-      text-decoration: none;
-      background: white;
-      color: black;
-		}
-		
-	}
-
-	.level1 {
-		top: 100%;
-    left: -25PX;
-    a:hover{
-      color: white;
-      background: $color_mercari-red;
+.header{
+  .header-inner{
+    .header-nav-box{
+        .header-box {
+          z-index: 2;
+          padding-top: 8px;
+          background: #FFFFFF;
+  
+          &__top {
+            display: flex;
+            justify-content: center;
+  
+            .header-icon {
+              width:134px;
+              height:36px;
+            }
+  
+            &__form {
+              margin-left: 45px;
+              display: flex;
+  
+              .input-default {
+                background: #f5f5f5;
+                border-radius: 4px;
+                height: 40px;
+                width: calc(100vw - 600px);
+                border: solid 1px #ccc;
+                position: relative;
+                padding-left: 10px;
+              }
+  
+              &__btn:before {
+                font-family: FontAwesome;
+                content : " \f002";
+                position: absolute;
+                right: 220px;
+                top: 20px;
+                cursor: pointer;
+              }
+            }
+          }
+  
+          &__bottom {
+            display: flex;
+            justify-content: center;
+            margin-left: 30px;
+            margin-top: -15px;
+  
+            &__left {
+              display: flex;
+              list-style-type: none;
+              width: 480px;
+              padding: 0;
+              margin-right: 130px;
+  
+              & li {
+                position: relative;
+                width: 40%;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+              }
+  
+              & li a {
+                display: block;
+                margin: 0;
+                padding: 16px 0;
+                background: #FFFFFF;
+                color: black;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 1;
+                text-decoration: none;
+              }
+  
+              & li ul {
+                position: absolute;
+                width: 100%;
+              }
+  
+              & li ul li {
+                overflow: hidden;
+                width: 100%;
+                height: 0;
+              }
+  
+              & li ul li a {
+                padding: 13px 15px;
+                text-align: left;
+                font-size: 12px;
+                font-weight: normal;
+              }
+  
+              & > li:hover > ul > li {
+                overflow: visible;
+                height: 38px;
+              }
+  
+              & li ul li ul {
+                top: 0;
+                left: 100%;
+              }
+              & li:last-child ul li ul {
+                left: -100%;
+                width: 100%;
+              }
+              & li ul li ul:before {
+                position: absolute;
+                content: "";
+                top: 13px;
+                left: -20px;
+                width: 0;
+                height: 0;
+  
+              }
+              & li:last-child ul li ul:before {
+                position: absolute;
+                content: "";
+                top: 13px;
+                left: 200%;
+                margin-left: -20px;
+                border: 5px solid transparent;
+                border-right-color: #454e08;
+              }
+              & li ul li:hover > ul > li {
+                overflow: visible;
+                height: 38px;
+              }
+  
+              & > li:hover li:hover > a {  background: red; }
+              & > li:hover li:hover li:hover > a {  background: #EEEEEE; }
+            }
+  
+            &__right {
+              display: flex;
+              list-style-type: none;
+              width: 480px;
+              padding: 0;
+  
+              & li {
+                position: relative;
+                width: 40%;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+              }
+  
+              & li a {
+                display: block;
+                margin: 0;
+                padding: 16px 0;
+                background: #FFFFFF;
+                color: black;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 1;
+                text-decoration: none;
+              }
+  
+              & li ul {
+                position: absolute;
+                width: 100%;
+              }
+            }
+          }
+  
+          .fa-list-ul::first-letter {
+            color: red;
+            font-size: 16px;
+            margin-right: 8px;
+          }
+  
+          .fa-tag::first-letter {
+            color: red;
+            font-size: 16px;
+            margin-right: 8px;
+          }
+  
+          .fa-bell-o::first-letter {
+            color: gray;
+            font-size: 18px;
+            margin-right: 8px;
+          }
+  
+          .fa-check::first-letter {
+            color: gray;
+            font-size: 18px;
+            margin-right: 8px;
+          }
+  
+          .mypage-icon {
+            display: flex;
+  
+            #mypage-icon {
+              margin: 5px 5px 0 0;
+              width: 34px;
+              height: 34px;
+            }
+  
+            #mypage {
+              margin-top: 2px;
+            }
+          }
+        }
+  
+        .items-photo {
+          width: 213px;
+          height: 220px;
+        }
+  
+        .header-box__bottom__devise__right{
+          margin-left:180px;
+          .signin-btn{
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            background-color:red;
+            width:70px;
+            height: 32px;
+            font-size: 14px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top:8px;
+            padding-top:5px;
+            a{
+              color:white;
+              margin:0 auto;
+              text-align: center;
+              width:70px;
+              height: 32px;
+            }
+          }
+          .signup-btn{
+            margin-top:8px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            margin-left:10px;
+            background: white;
+            font-size:14px;
+            border:#0099e8 solid 1px;
+            border-radius: 5px;
+            display: inline-block;
+            padding-top:3px;
+            width:106px;
+            height: 32px;
+  
+            a{
+              color:#0099e8;
+              width:106px;
+              height: 32px;
+              text-align: center;
+              display: block;
+  
+            }
+          }
+        }
+      }
     }
-	}
-
-	.level2 {
-    top: 0;
-		left: 200PX;
-    border-left: 1px solid white;
-    a:hover{
-      color: black;
-      background: #eeeeee;
-    }
-	}
-
-// 	.item-arrow {
-// 		&:after {
-// 			width: 7px;
-// 			height: 7px;
-// 			top: 50%;
-// 			right: 10px;
-// 			margin-top: -4px;
-// 			border-color: #37a0da;
-// 		}
-// 	}
-// }
-
+  }
