@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
   def new
     @item =Item.new
-    # @categories = Category.all.order("id ASC").limit(13)
   end
 
   def create
@@ -36,14 +35,12 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_search
+    @search = Item.ransack(params[:q])
+  end
+
   def item_params
     params.require(:item).permit(:name ,:description ,:category_id ,:status ,:price, :state, :shipping_agency, :duration).merge(user_id: current_user.id)
   end
 end
-
-# size　サイズ1
-# responsibillity　責任？
-# delivery_method　配達方法
-# profit　利益
-# draft　下書き
-# sold_out
