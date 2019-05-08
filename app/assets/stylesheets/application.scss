@@ -20,6 +20,7 @@
 @import "modules/purchase";
 @import "./profile";
 
+
 html{
   body{
     // position: relative;
@@ -38,4 +39,11 @@ html{
 .link-mercari-blue:hover{
   opacity: 0.7;
   text-decoration: underline;
+}
+
+
+.clerfix::after{
+  content:"";
+  display: block;
+  clear: both;
 }

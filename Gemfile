@@ -93,3 +93,4 @@ gem 'dotenv-rails'
 
 #phone-number confirmation gem
 gem 'twilio-ruby', '~> 5.22.1'
+gem 'ancestry'
