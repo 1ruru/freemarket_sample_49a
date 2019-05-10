@@ -27,9 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     @item = Item.find(params[:id])
-
     if(params[:item][:del_image_ids])
       params[:item][:del_image_ids].each do |del_image_id|
         image = @item.images.find(del_image_id)
