@@ -81,38 +81,55 @@
                     width: 100%;
                     height: 100%;
                     margin-left: 0;
-                    position: relative;
+                    // position: relative;
                     min-height: 162px;
-                    background: #f5f5f5;
-                    border: 1px dashed #ccc;
-                    font-size: 0;
-                    text-align: center;
-                    cursor: pointer;
+                    // font-size: 0;
+                    // text-align: center;
+                    // cursor: pointer;
                     float: right;
                     margin-left: 2%;
-                    .fail-photo{
+                    .image-input-box{
                       width: 100%;
-                      height: 164px;
-                      display: block;
-                      .sell-upload-drop-file{
-                        display: none;
+                      min-height: 164px;
+                      display: grid;
+                      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                      grid-template-rows: 164px;
+                      margin-bottom: 70px;
+                      .fail-photo{
+                        width: 100%;
                         height: 164px;
-                      }
-                      pre{
-                        position: absolute;
-                        top: 50%;
-                        left: 16px;
-                        right: 16px;
-                        text-align: center;
-                        font-size: 14px;
-                        line-height: 1.5;
-                        -webkit-transform: translate(0, -50%);
-                        transform: translate(0, -50%);
-                        pointer-events: none;
-                        white-space: pre-wrap;
-                        word-wrap: break-word;
-                        display: block;
-                        overflow: auto;
+                        grid-column: 1/6;
+                        grid-row: 1/2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        background: #f5f5f5;
+                        border: 1px dashed #ccc;
+                        .sell-upload-drop-file{
+                          display: none;
+                          height: 164px;
+                        }
+                        &__text{
+                          text-align: center;
+                          font-size: 14px;
+                        }
+                        // pre{
+                        //   position: absolute;
+                        //   top: 50%;
+                        //   left: 16px;
+                        //   right: 16px;
+                        //   text-align: center;
+                        //   font-size: 14px;
+                        //   line-height: 1.5;
+                        //   -webkit-transform: translate(0, -50%);
+                        //   transform: translate(0, -50%);
+                        //   pointer-events: none;
+                        //   white-space: pre-wrap;
+                        //   word-wrap: break-word;
+                        //   display: block;
+                        //   overflow: auto;
+                        // }
                       }
                     }
                   }
