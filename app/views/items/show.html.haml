@@ -1,3 +1,6 @@
+-userName = @item.user.family_name + @item.user.first_name
+-prevItemId = @item.id - 1
+-nextItemId = @item.id + 1
 #items_show
   .main-content
     .header
@@ -7,29 +10,24 @@
         .item-title
           =@item.name
         .item-overview
-          ="#{@item.name}は、904回の取引実績を持つ#{@item.user.family_name+@item.user.first_name}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
+          ="#{@item.name}は、904回の取引実績を持つ#{userName}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
         .item-main
           .image-box
             .image-box__pickup
-              = image_tag 'pickup.jpg', size:'300x300'
+              = image_tag @item.images.first(), size:'300x300'
               .image-box__pickup__sold
 
             .image-box__bottom
-              .image-box__bottom__image.image-box__bottom__image--active
-                = image_tag 'pickup.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag02.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag03.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag04.jpg', size:'75x78'
+              -@item.images.each do |image|
+                .image-box__bottom__image
+                  = image_tag image, size:'75x78'
 
           .item-main__list
             .item-main__list__row.item-main__list__exhibitor
               .item-main__list__row--name
                 出品者
               .item-main__list__row--content
-                =link_to 'BOON90sリバイバル@コスパ優良店', '', class:'link-mercari-blue'
+                =link_to "#{userName}", '', class:'link-mercari-blue'
                 .content__eva
                   .content__eva--para
                     =fa_icon 'smile-o', class:'good'
@@ -44,28 +42,29 @@
               .item-main__list__row--name
                 カテゴリー
               .item-main__list__row--content
-                =link_to "#{'レディース'}", '', class:'link-mercari-blue'
-                =link_to '', class:'link-mercari-blue' do
-                  =fa_icon 'chevron-right',class:"icon-arrow"
-                  ="#{'バッグ'}"
-                =link_to '', class:'link-mercari-blue' do
-                  =fa_icon 'chevron-right',class:"icon-arrow"
-                  ="#{'ショルダーバッグ'}"
+                =link_to "#{@item.category.name}", '', class:'link-mercari-blue'
+                -# =link_to '', class:'link-mercari-blue' do
+                -#   =fa_icon 'chevron-right',class:"icon-arrow"
+                -#   ="#{'バッグ'}"
+                -# =link_to '', class:'link-mercari-blue' do
+                -#   =fa_icon 'chevron-right',class:"icon-arrow"
+                -#   ="#{'ショルダーバッグ'}"
             .item-main__list__row.item-main__list__brand
               .item-main__list__row--name
                 ブランド
               .item-main__list__row--content
-                =link_to "#{'コーチ'}", '', class:'link-mercari-blue'
+                -if(false)
+                  =link_to "#{'コーチ'}", '', class:'link-mercari-blue'
             .item-main__list__row.item-main__list__status
               .item-main__list__row--name
                 商品の状態
               .item-main__list__row--content
-                やや傷や汚れあり
+                ="#{@item.status}"
             .item-main__list__row.item-main__list__ship-burden
               .item-main__list__row--name
                 配送料の負担
               .item-main__list__row--content
-                送料込み(出品者負担)
+                =@item.shipping_agency
             .item-main__list__row.item-main__list__ship-method
               .item-main__list__row--name
                 配送の方法
@@ -75,18 +74,27 @@
               .item-main__list__row--name
                 配送元地域
               .item-main__list__row--content
-                =link_to "#{'兵庫県'}", '', class:'link-mercari-blue'
+                =link_to "#{@item.state}", '', class:'link-mercari-blue'
             .item-main__list__row.item-main__list__ship-date
               .item-main__list__row--name
                 発送日の目安
               .item-main__list__row--content
-                1~2日で発送
+                =@item.duration
         .item-price
           %span.item-price--price
             ="\¥#{@item.price}"
           %span.item-price--tax
             (税込)
           %span.item-price--postage
+            -if (@item.shipping_agency == "送料込み(出品者負担)")
+              ="#{'送料込み'}"
+            -else
+              ="#{'送料別'}"
+
+        //リンク先おなしゃす
+        =link_to '購入画面に進む', '', class:"item-buy"
+        %p.item-description
+          = @item.description
             -if(@item.shipping_agency == "着払い(購入者負担)")
               ="#{'送料別'}"
             -else
@@ -105,12 +113,14 @@
           .message-box__content__info
             200日前
     .prev-next-items
-      =link_to '', class:"nav-link link-mercari-blue" do
-        =fa_icon 'chevron-left',class:"icon-arrow"
-        ='楽天パンダ ノート&マスキングテープセット'
-      =link_to '', class:"nav-link link-mercari-blue" do
-        ='楽天パンダ ノート&マスキングテープセット'
-        =fa_icon 'chevron-right',class:"icon-arrow"
+      -if(prevItemId != 0 && (prevItem = Item.find_by(id: prevItemId)) != nil)
+        =link_to item_path(prevItemId), class:"nav-link link-mercari-blue" do
+          =fa_icon 'chevron-left',class:"icon-arrow"
+          =prevItem.name
+      -if((nextItem = Item.find_by(id: nextItemId)) != nil)
+        =link_to item_path(nextItemId), class:"nav-link link-mercari-blue" do
+          =nextItem.name
+          =fa_icon 'chevron-right',class:"icon-arrow"
     .sns
       .sns__item.sns__facebook
         =link_to '' do
@@ -122,134 +132,45 @@
         =link_to '' do
           = image_tag 'pinterest.png', size:'38x38'
     
-    .pickup-container
-      .items-box-container
-        %h3.text-center
-          =link_to "#{"BOON90sリバイバル@コスパ優良店"}さんのその他の出品", '', class: 'link-blue'
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko2.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko3.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name 着圧 ストッキング ベージュ送料無料
-                .items-box-num
-                  .items-box-price ¥ 300
-                %p.item-box-tax (税込)
+    -if(@userItems.length > 1)
+      .pickup-container
+        .items-box-container
+          %h3.text-center
+            =link_to "#{userName}さんのその他の出品", '', class: 'link-blue'
+          -for i in 0..((@userItems.length - 1) / 3)
+            .items-box-content
+              -for j in 0..2
+                -if(@userItems[j] != nil)
+                  .items-box
+                    %a{:href => "/"}
+                      .items-box-photo
+                        = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+                      .items-box-body
+                        %h3.items-box-name
+                          =@userItems[j].name
+                        .items-box-num
+                          .items-box-price
+                            ="\¥#{@userItems[j].price}"
+                        %p.item-box-tax (税込)
 
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name Drug  honey ドラッグハニー 3連カーゴポケット ワイドパンツ 新品
-                .items-box-num
-                  .items-box-price ¥ 5,000
-                  .font-2
-                    %i.icon-like-border
-                    %span 24
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko5.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko6.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-
-      .items-box-container
-        %h3.text-center
-          =link_to "#{"コーチ"}の#{"ショルダーバッグ"}その他の出品", '', class: 'link-blue'
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko2.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko3.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name 着圧 ストッキング ベージュ送料無料
-                .items-box-num
-                  .items-box-price ¥ 300
-                %p.item-box-tax (税込)
-
-      .items-box-content
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name Drug  honey ドラッグハニー 3連カーゴポケット ワイドパンツ 新品
-              .items-box-num
-                .items-box-price ¥ 5,000
-                .font-2
-                  %i.icon-like-border
-                  %span 24
-              %p.item-box-tax (税込)
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko5.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name minimum minimum トップス
-              .items-box-num
-                .items-box-price ¥ 799
-              %p.item-box-tax (税込)
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko6.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name ぬいぐるみリュック
-              .items-box-num
-                .items-box-price ¥ 1,400
-              %p.item-box-tax (税込)
+      -if(@cateItems.length > 1)
+        .items-box-container
+          %h3.text-center
+            =link_to "#{@item.category.name}その他の出品", '', class: 'link-blue'
+          .items-box-content
+            -for i in 0..(@cateItems.length - 1)
+              -if(@cateItems[i] != nil)
+                .items-box
+                  %a{:href => "/"}
+                    .items-box-photo
+                      = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+                    .items-box-body
+                      %h3.items-box-name
+                        =@cateItems[i].name
+                      .items-box-num
+                        .items-box-price
+                          ="\¥#{@cateItems[i].price}"
+                      %p.item-box-tax (税込)
 
     .footer
       = render 'footer'

@@ -74,4 +74,11 @@ $(function() {
     alert('消す');
     this.parent().delete();
   });
+
+  //
+  $('.image-box__bottom__image').on('mouseover', function(){
+    $('.image-box__pickup img').attr('src', $(this).children('img').attr('src'));
+    $('.image-box__bottom__image').removeClass('image-box__bottom__image--active')
+    $(this).addClass('image-box__bottom__image--active')
+  });
 });

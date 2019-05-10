@@ -8,19 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item=Item.new(item_params)
-    # if params[:images].present?
-    #   if @item.save
-    #     if image_params.each { |image| @image = @item.images.create(image: image)}
-    #       redirect_to root_path
-    #     else
-    #       render :new
-    #     end
-    #   end
-    # else
-    #   render :new
-    # end
     if @item.save!
       redirect_to root_path
     else
@@ -30,6 +18,38 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @userItems = @item.user.items
+    @cateItems = Item.where("category_id = #{@item.category.id}").limit(3)
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    binding.pry
+    @item = Item.find(params[:id])
+
+    if(params[:item][:del_image_ids])
+      params[:item][:del_image_ids].each do |del_image_id|
+        image = @item.images.find(del_image_id)
+        image.purge
+      end
+    end
+    if @item.update!(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy!()
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def purchase

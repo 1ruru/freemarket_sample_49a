@@ -453,7 +453,7 @@
                 }
               }
               .sell-content6.sell-btn-box{
-                height: 329px;
+                min-height: 329px;
                 padding: 40px;
                 border-top: 1px solid #eee;
                 box-sizing: border-box;
@@ -483,6 +483,7 @@
                   transition: all ease-out .3s;
                   cursor: pointer;
                   text-align: center;
+                  text-decoration-line: none;
                 }
                 .btn-gray {
                   background: #aaa;
