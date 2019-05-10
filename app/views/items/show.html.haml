@@ -5,9 +5,9 @@
     .main
       .item
         .item-title
-          正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+          =@item.name
         .item-overview
-          『正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ』は、904回の取引実績を持つBOON90sリバイバル@コスパ優良店さんから出品されました。コーチ（ショルダーバッグ/レディース）の商品で、兵庫県から1~2日で発送されます。
+          ="#{@item.name}は、904回の取引実績を持つ#{@item.user.family_name+@item.user.first_name}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
         .item-main
           .image-box
             .image-box__pickup
@@ -83,14 +83,18 @@
                 1~2日で発送
         .item-price
           %span.item-price--price
-            ="\¥#{"3,380"}"
+            ="\¥#{@item.price}"
           %span.item-price--tax
             (税込)
           %span.item-price--postage
-            ="#{'送料込み'}"
+            -if(@item.shipping_agency == "着払い(購入者負担)")
+              ="#{'送料別'}"
+            -else
+              ="#{'送料込み'}"
+        .item-buy
+          購入する
         %p.item-description
-          -text = "■商品ご覧頂き、誠にありがとうございます。\n※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！\n\n私の商品検索は、\n#Boon・バッグ\n検索してください。\n\n質問がありましたらコメントでよろしくお願いします！\n■ 商品説明 ■\nまずはプロフを確認してください☆\n\n■ 商品詳細 ■\nシンプルな落ち着いたお色味でどんな場面にも合い、\nどんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが\n使わなくなったのでどなたか使っていただける方お願いします。\n製造番号　H2K-9294\n\n【ブランド】\nCOACH　コーチ\n\n【商品名】\nコーチ大き目シンプル\n\n【仕様】\n外ポケット１　内ポケット４\n\n【サイズ】\n縦：32\n横：31\n幅：7\n紐：130 多少調節可能\n\n＊他にも数多くの商品を出品しているので、ぜひご覧ください。\n＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。\n＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^\n※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。\n\n#シンプル #かわいい #大き目 #かばん #バッグ"
-          = simple_format(text, {})
+          = simple_format(@item.description, {})
     .chat
       .message-box
         .message-box__icon
