@@ -93,15 +93,7 @@
 
         //リンク先おなしゃす
         =link_to '購入画面に進む', '', class:"item-buy"
-        %p.item-description
-          = @item.description
-            -if(@item.shipping_agency == "着払い(購入者負担)")
-              ="#{'送料別'}"
-            -else
-              ="#{'送料込み'}"
-        .item-buy
-          購入する
-        %p.item-description
+        .item-description
           = simple_format(@item.description, {})
     .chat
       .message-box
@@ -131,7 +123,6 @@
       .sns__item.sns__pinterest
         =link_to '' do
           = image_tag 'pinterest.png', size:'38x38'
-    
     -if(@userItems.length > 1)
       .pickup-container
         .items-box-container
@@ -153,24 +144,24 @@
                             ="\¥#{@userItems[j].price}"
                         %p.item-box-tax (税込)
 
-      -if(@cateItems.length > 1)
-        .items-box-container
-          %h3.text-center
-            =link_to "#{@item.category.name}その他の出品", '', class: 'link-blue'
-          .items-box-content
-            -for i in 0..(@cateItems.length - 1)
-              -if(@cateItems[i] != nil)
-                .items-box
-                  %a{:href => "/"}
-                    .items-box-photo
-                      = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-                    .items-box-body
-                      %h3.items-box-name
-                        =@cateItems[i].name
-                      .items-box-num
-                        .items-box-price
-                          ="\¥#{@cateItems[i].price}"
-                      %p.item-box-tax (税込)
+    -if(@cateItems.length > 1)
+      .items-box-container
+        %h3.text-center
+          =link_to "#{@item.category.name}その他の出品", '', class: 'link-blue'
+        .items-box-content
+          -for i in 0..(@cateItems.length - 1)
+            -if(@cateItems[i] != nil)
+              .items-box
+                %a{:href => "/"}
+                  .items-box-photo
+                    = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+                  .items-box-body
+                    %h3.items-box-name
+                      =@cateItems[i].name
+                    .items-box-num
+                      .items-box-price
+                        ="\¥#{@cateItems[i].price}"
+                    %p.item-box-tax (税込)
 
     .footer
       = render 'footer'
