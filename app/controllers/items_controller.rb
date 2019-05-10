@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item=Item.new(item_params)
     # if params[:images].present?
     #   if @item.save
@@ -41,6 +42,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name ,:description ,:category_id ,:status ,:price, :state, :shipping_agency, :duration).merge(user_id: current_user.id)
+    params.require(:item).permit(:name ,:description ,:category_id ,:status ,:price, :state, :shipping_agency, :duration, images: []).merge(user_id: current_user.id)
   end
 end

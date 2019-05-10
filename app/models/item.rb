@@ -1,11 +1,12 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :images
   # belongs_to :brand
   belongs_to :category
   validates :name,length: { in: 1..40 }
   validates :description,length: { in: 1..1000 }
   validates :price, numericality: true
+
+  has_many_attached :images
 
   enum state:{
     "北海道":1,"青森県":2,"岩手県":3,"宮城県":4,"秋田県":5,"山形県":6,"福島県":7,
