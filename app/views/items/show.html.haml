@@ -1,3 +1,6 @@
+-userName = @item.user.family_name + @item.user.first_name
+-prevItemId = @item.id - 1
+-nextItemId = @item.id + 1
 #items_show
   .main-content
     .header
@@ -5,31 +8,30 @@
     .main
       .item
         .item-title
-          正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+          =@item.name
         .item-overview
-          『正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ』は、904回の取引実績を持つBOON90sリバイバル@コスパ優良店さんから出品されました。コーチ（ショルダーバッグ/レディース）の商品で、兵庫県から1~2日で発送されます。
+<<<<<<< HEAD
+          ="#{@item.name}は、904回の取引実績を持つ#{userName}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
+=======
+          ="#{@item.name}は、904回の取引実績を持つ#{@item.user.family_name+@item.user.first_name}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
+>>>>>>> origin/master
         .item-main
           .image-box
             .image-box__pickup
-              = image_tag 'pickup.jpg', size:'300x300'
+              = image_tag @item.images.first(), size:'300x300'
               .image-box__pickup__sold
 
             .image-box__bottom
-              .image-box__bottom__image.image-box__bottom__image--active
-                = image_tag 'pickup.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag02.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag03.jpg', size:'75x78'
-              .image-box__bottom__image
-                = image_tag 'bag04.jpg', size:'75x78'
+              -@item.images.each do |image|
+                .image-box__bottom__image
+                  = image_tag image, size:'75x78'
 
           .item-main__list
             .item-main__list__row.item-main__list__exhibitor
               .item-main__list__row--name
                 出品者
               .item-main__list__row--content
-                =link_to 'BOON90sリバイバル@コスパ優良店', '', class:'link-mercari-blue'
+                =link_to "#{userName}", '', class:'link-mercari-blue'
                 .content__eva
                   .content__eva--para
                     =fa_icon 'smile-o', class:'good'
@@ -44,28 +46,29 @@
               .item-main__list__row--name
                 カテゴリー
               .item-main__list__row--content
-                =link_to "#{'レディース'}", '', class:'link-mercari-blue'
-                =link_to '', class:'link-mercari-blue' do
-                  =fa_icon 'chevron-right',class:"icon-arrow"
-                  ="#{'バッグ'}"
-                =link_to '', class:'link-mercari-blue' do
-                  =fa_icon 'chevron-right',class:"icon-arrow"
-                  ="#{'ショルダーバッグ'}"
+                =link_to "#{@item.category.name}", '', class:'link-mercari-blue'
+                -# =link_to '', class:'link-mercari-blue' do
+                -#   =fa_icon 'chevron-right',class:"icon-arrow"
+                -#   ="#{'バッグ'}"
+                -# =link_to '', class:'link-mercari-blue' do
+                -#   =fa_icon 'chevron-right',class:"icon-arrow"
+                -#   ="#{'ショルダーバッグ'}"
             .item-main__list__row.item-main__list__brand
               .item-main__list__row--name
                 ブランド
               .item-main__list__row--content
-                =link_to "#{'コーチ'}", '', class:'link-mercari-blue'
+                -if(false)
+                  =link_to "#{'コーチ'}", '', class:'link-mercari-blue'
             .item-main__list__row.item-main__list__status
               .item-main__list__row--name
                 商品の状態
               .item-main__list__row--content
-                やや傷や汚れあり
+                ="#{@item.status}"
             .item-main__list__row.item-main__list__ship-burden
               .item-main__list__row--name
                 配送料の負担
               .item-main__list__row--content
-                送料込み(出品者負担)
+                =@item.shipping_agency
             .item-main__list__row.item-main__list__ship-method
               .item-main__list__row--name
                 配送の方法
@@ -75,22 +78,38 @@
               .item-main__list__row--name
                 配送元地域
               .item-main__list__row--content
-                =link_to "#{'兵庫県'}", '', class:'link-mercari-blue'
+                =link_to "#{@item.state}", '', class:'link-mercari-blue'
             .item-main__list__row.item-main__list__ship-date
               .item-main__list__row--name
                 発送日の目安
               .item-main__list__row--content
-                1~2日で発送
+                =@item.duration
         .item-price
           %span.item-price--price
-            ="\¥#{"3,380"}"
+            ="\¥#{@item.price}"
           %span.item-price--tax
             (税込)
           %span.item-price--postage
-            ="#{'送料込み'}"
+<<<<<<< HEAD
+            -if (@item.shipping_agency == "送料込み(出品者負担)")
+              ="#{'送料込み'}"
+            -else
+              ="#{'送料別'}"
+
+        //リンク先おなしゃす
+        =link_to '購入画面に進む', '', class:"item-buy"
         %p.item-description
-          -text = "■商品ご覧頂き、誠にありがとうございます。\n※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！\n\n私の商品検索は、\n#Boon・バッグ\n検索してください。\n\n質問がありましたらコメントでよろしくお願いします！\n■ 商品説明 ■\nまずはプロフを確認してください☆\n\n■ 商品詳細 ■\nシンプルな落ち着いたお色味でどんな場面にも合い、\nどんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが\n使わなくなったのでどなたか使っていただける方お願いします。\n製造番号　H2K-9294\n\n【ブランド】\nCOACH　コーチ\n\n【商品名】\nコーチ大き目シンプル\n\n【仕様】\n外ポケット１　内ポケット４\n\n【サイズ】\n縦：32\n横：31\n幅：7\n紐：130 多少調節可能\n\n＊他にも数多くの商品を出品しているので、ぜひご覧ください。\n＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。\n＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^\n※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。\n\n#シンプル #かわいい #大き目 #かばん #バッグ"
-          = simple_format(text, {})
+          = @item.description
+=======
+            -if(@item.shipping_agency == "着払い(購入者負担)")
+              ="#{'送料別'}"
+            -else
+              ="#{'送料込み'}"
+        .item-buy
+          購入する
+        %p.item-description
+          = simple_format(@item.description, {})
+>>>>>>> origin/master
     .chat
       .message-box
         .message-box__icon
@@ -101,12 +120,14 @@
           .message-box__content__info
             200日前
     .prev-next-items
-      =link_to '', class:"nav-link link-mercari-blue" do
-        =fa_icon 'chevron-left',class:"icon-arrow"
-        ='楽天パンダ ノート&マスキングテープセット'
-      =link_to '', class:"nav-link link-mercari-blue" do
-        ='楽天パンダ ノート&マスキングテープセット'
-        =fa_icon 'chevron-right',class:"icon-arrow"
+      -if(prevItemId != 0 && (prevItem = Item.find_by(id: prevItemId)) != nil)
+        =link_to item_path(prevItemId), class:"nav-link link-mercari-blue" do
+          =fa_icon 'chevron-left',class:"icon-arrow"
+          =prevItem.name
+      -if((nextItem = Item.find_by(id: nextItemId)) != nil)
+        =link_to item_path(nextItemId), class:"nav-link link-mercari-blue" do
+          =nextItem.name
+          =fa_icon 'chevron-right',class:"icon-arrow"
     .sns
       .sns__item.sns__facebook
         =link_to '' do
@@ -118,134 +139,45 @@
         =link_to '' do
           = image_tag 'pinterest.png', size:'38x38'
     
-    .pickup-container
-      .items-box-container
-        %h3.text-center
-          =link_to "#{"BOON90sリバイバル@コスパ優良店"}さんのその他の出品", '', class: 'link-blue'
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko2.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko3.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name 着圧 ストッキング ベージュ送料無料
-                .items-box-num
-                  .items-box-price ¥ 300
-                %p.item-box-tax (税込)
+    -if(@userItems.length > 1)
+      .pickup-container
+        .items-box-container
+          %h3.text-center
+            =link_to "#{userName}さんのその他の出品", '', class: 'link-blue'
+          -for i in 0..((@userItems.length - 1) / 3)
+            .items-box-content
+              -for j in 0..2
+                -if(@userItems[j] != nil)
+                  .items-box
+                    %a{:href => "/"}
+                      .items-box-photo
+                        = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+                      .items-box-body
+                        %h3.items-box-name
+                          =@userItems[j].name
+                        .items-box-num
+                          .items-box-price
+                            ="\¥#{@userItems[j].price}"
+                        %p.item-box-tax (税込)
 
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name Drug  honey ドラッグハニー 3連カーゴポケット ワイドパンツ 新品
-                .items-box-num
-                  .items-box-price ¥ 5,000
-                  .font-2
-                    %i.icon-like-border
-                    %span 24
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko5.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko6.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-
-      .items-box-container
-        %h3.text-center
-          =link_to "#{"コーチ"}の#{"ショルダーバッグ"}その他の出品", '', class: 'link-blue'
-        .items-box-content
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name minimum minimum トップス
-                .items-box-num
-                  .items-box-price ¥ 799
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko2.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name ぬいぐるみリュック
-                .items-box-num
-                  .items-box-price ¥ 1,400
-                %p.item-box-tax (税込)
-          .items-box
-            %a{:href => "/"}
-              .items-box-photo
-                = image_tag 'neko3.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-              .items-box-body
-                %h3.items-box-name 着圧 ストッキング ベージュ送料無料
-                .items-box-num
-                  .items-box-price ¥ 300
-                %p.item-box-tax (税込)
-
-      .items-box-content
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name Drug  honey ドラッグハニー 3連カーゴポケット ワイドパンツ 新品
-              .items-box-num
-                .items-box-price ¥ 5,000
-                .font-2
-                  %i.icon-like-border
-                  %span 24
-              %p.item-box-tax (税込)
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko5.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name minimum minimum トップス
-              .items-box-num
-                .items-box-price ¥ 799
-              %p.item-box-tax (税込)
-        .items-box
-          %a{:href => "/"}
-            .items-box-photo
-              = image_tag 'neko6.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
-            .items-box-body
-              %h3.items-box-name ぬいぐるみリュック
-              .items-box-num
-                .items-box-price ¥ 1,400
-              %p.item-box-tax (税込)
+      -if(@cateItems.length > 1)
+        .items-box-container
+          %h3.text-center
+            =link_to "#{@item.category.name}その他の出品", '', class: 'link-blue'
+          .items-box-content
+            -for i in 0..(@cateItems.length - 1)
+              -if(@cateItems[i] != nil)
+                .items-box
+                  %a{:href => "/"}
+                    .items-box-photo
+                      = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+                    .items-box-body
+                      %h3.items-box-name
+                        =@cateItems[i].name
+                      .items-box-num
+                        .items-box-price
+                          ="\¥#{@cateItems[i].price}"
+                      %p.item-box-tax (税込)
 
     .footer
       = render 'footer'
