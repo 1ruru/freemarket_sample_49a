@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-<<<<<<< HEAD
     @userItems = @item.user.items
     @cateItems = Item.where("category_id = #{@item.category.id}").limit(3)
   end
@@ -51,8 +50,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-=======
->>>>>>> origin/master
   end
 
   def purchase

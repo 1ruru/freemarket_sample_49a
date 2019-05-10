@@ -10,11 +10,7 @@
         .item-title
           =@item.name
         .item-overview
-<<<<<<< HEAD
           ="#{@item.name}は、904回の取引実績を持つ#{userName}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
-=======
-          ="#{@item.name}は、904回の取引実績を持つ#{@item.user.family_name+@item.user.first_name}さんから出品されました。#{@item.category.name}の商品で、#{@item.state}から#{@item.duration}されます。"
->>>>>>> origin/master
         .item-main
           .image-box
             .image-box__pickup
@@ -90,7 +86,6 @@
           %span.item-price--tax
             (税込)
           %span.item-price--postage
-<<<<<<< HEAD
             -if (@item.shipping_agency == "送料込み(出品者負担)")
               ="#{'送料込み'}"
             -else
@@ -100,7 +95,6 @@
         =link_to '購入画面に進む', '', class:"item-buy"
         %p.item-description
           = @item.description
-=======
             -if(@item.shipping_agency == "着払い(購入者負担)")
               ="#{'送料別'}"
             -else
@@ -109,7 +103,6 @@
           購入する
         %p.item-description
           = simple_format(@item.description, {})
->>>>>>> origin/master
     .chat
       .message-box
         .message-box__icon
