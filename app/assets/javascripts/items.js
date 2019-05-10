@@ -5,30 +5,19 @@ $(function() {
       var reader = new FileReader();
       reader.onload = function(){
         imageCount+=1;
-        var img = new Image();
+        var img = new Image(114, 116);
         img.src = reader.result;
-        img.width = 114;
-        img.height = 116;
         var imageColumn, imageRow, navColumn, navRow;
-        if(imageCount > 5){
-          imageColumn = parseInt(imageCount%5);
-        }else{
-          imageColumn = parseInt(imageCount);
-        }
-        if(imageCount >= 5){
-          navColumn = imageCount%5 + 1;
-        }else{
-          navColumn = imageCount + 1;
-        }
+        if(imageCount > 5){ imageColumn = parseInt(imageCount%5); }
+        else{ imageColumn = parseInt(imageCount); }
+        if(imageCount >= 5){ navColumn = imageCount%5 + 1; }
+        else{ navColumn = imageCount + 1; }
         imageRow = parseInt(imageCount/6 + 1);
         navRow = parseInt(imageCount/5 + 1);
-        // img.style = "grid-column:" + (column-1) + "/" + (column) + ";";
-        // img.style += "grid-row:" + (row) + "/" + (row+1) + ";";
 
         var html_frame = `
         <div class="image-box" style="grid-column:${imageColumn}/${imageColumn+1}; grid-row:${imageRow}/${imageRow+1};">
         </div>`;
-
         var html_command = `
         <div class="commands" style="display:flex">
           <div class"commands__edit" style="height:44px; width:57px;
