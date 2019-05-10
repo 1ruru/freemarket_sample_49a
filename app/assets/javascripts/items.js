@@ -1,14 +1,5 @@
 imageCount = 0;
 $(function() {
-  //category-select_box
-  $("#selectitembox").change(function() {
-    if ($(this).val() !== "") {
-      $("#selectitembox1").show();
-    } else {
-      $("#selectitembox1").hide();
-      $("#selectitembox2").hide();
-      $("#selectitembox1").val("");
-      $("#selectitembox2").val("");
   /*-------func imageupnavigator html-------*/
   function buildItemImage(file){
       var reader = new FileReader();
@@ -56,14 +47,23 @@ $(function() {
   }
 
 
+  
+
+  //active-storage 画像表示
+  $('.sell-upload-drop-file').on('change', function(){
+    var files = this.files;
+    if((files.length + imageCount) > 10){
+      alert('10個より多くの画像は投稿できません.');
+      return false;
     }
+    $.each(files, function (i, file) {
+      buildItemImage(file);
+    });
   });
-  $("#selectitembox1").change(function() {
-    if ($(this).val() !== "") {
-      $("#selectitembox2").show();
-    } else {
-      $("#selectitembox2").hide();
-      $("#selectitembox2").val("");
-    }
+  //active-storage 画像表示 end
+
+  $('.commands__delete').on("click", function(e){
+    alert('消す');
+    this.parent().delete();
   });
-  //category-select_boxここまで
+});
