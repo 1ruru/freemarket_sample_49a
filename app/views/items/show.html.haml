@@ -5,9 +5,9 @@
     .main
       .item
         .item-title
-          正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+          = @item.name
         .item-overview
-          『正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ』は、904回の取引実績を持つBOON90sリバイバル@コスパ優良店さんから出品されました。コーチ（ショルダーバッグ/レディース）の商品で、兵庫県から1~2日で発送されます。
+          
         .item-main
           .image-box
             .image-box__pickup
@@ -29,7 +29,8 @@
               .item-main__list__row--name
                 出品者
               .item-main__list__row--content
-                =link_to 'BOON90sリバイバル@コスパ優良店', '', class:'link-mercari-blue'
+                =link_to '', class:'link-mercari-blue' do
+                  = @item.user.nickname
                 .content__eva
                   .content__eva--para
                     =fa_icon 'smile-o', class:'good'
@@ -60,37 +61,51 @@
               .item-main__list__row--name
                 商品の状態
               .item-main__list__row--content
-                やや傷や汚れあり
+                = @item.status
             .item-main__list__row.item-main__list__ship-burden
               .item-main__list__row--name
                 配送料の負担
               .item-main__list__row--content
-                送料込み(出品者負担)
+                = @item.shipping_agency
             .item-main__list__row.item-main__list__ship-method
               .item-main__list__row--name
                 配送の方法
               .item-main__list__row--content
-                らくらくメルカリ便
+                ?????????
             .item-main__list__row.item-main__list__disp-area
               .item-main__list__row--name
                 配送元地域
               .item-main__list__row--content
-                =link_to "#{'兵庫県'}", '', class:'link-mercari-blue'
+                =link_to  class:'link-mercari-blue' do
+                  =@item.state
             .item-main__list__row.item-main__list__ship-date
               .item-main__list__row--name
                 発送日の目安
               .item-main__list__row--content
-                1~2日で発送
+                = @item.duration
         .item-price
           %span.item-price--price
-            ="\¥#{"3,380"}"
+            ="\¥#{@item.price}"
           %span.item-price--tax
             (税込)
           %span.item-price--postage
             ="#{'送料込み'}"
-        %p.item-description
+        -# - if (@item.user_id = current_user)
+        -#   .buy_btn
+        -#     =link_to "編集へ", root_path, class:'buy_btn'
+        - if (@item.sold_out == false)
+          .buy_btn
+            = link_to item_purchases_path(@item), class:'buy_btn' do
+              購入画面に進む
+        - else
+          .buy_btn.sold_out
+            売り切れました
+
+        %p.item-description.clerfix
+          = @item.description
           -text = "■商品ご覧頂き、誠にありがとうございます。\n※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！\n\n私の商品検索は、\n#Boon・バッグ\n検索してください。\n\n質問がありましたらコメントでよろしくお願いします！\n■ 商品説明 ■\nまずはプロフを確認してください☆\n\n■ 商品詳細 ■\nシンプルな落ち着いたお色味でどんな場面にも合い、\nどんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが\n使わなくなったのでどなたか使っていただける方お願いします。\n製造番号　H2K-9294\n\n【ブランド】\nCOACH　コーチ\n\n【商品名】\nコーチ大き目シンプル\n\n【仕様】\n外ポケット１　内ポケット４\n\n【サイズ】\n縦：32\n横：31\n幅：7\n紐：130 多少調節可能\n\n＊他にも数多くの商品を出品しているので、ぜひご覧ください。\n＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。\n＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^\n※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。\n\n#シンプル #かわいい #大き目 #かばん #バッグ"
           = simple_format(text, {})
+
     .chat
       .message-box
         .message-box__icon
@@ -247,5 +262,13 @@
                 .items-box-price ¥ 1,400
               %p.item-box-tax (税込)
 
+
     .footer
       = render 'footer'
+
+
+-# = @item.category.parent.parent.name
+-# = @item.category.parent.name
+-# = @item.category.name
+-# = @item.brand.name
+

@@ -23,7 +23,7 @@
                 =fa_icon 'check',class:"icon-check"
                 %span やることリスト
             %li
-              %a.header-user-icon.header-menu-link{:href => "/"}
+              %a.header-user-icon.header-menu-link{:href => "users/profile"}
                 .user
                   .user--img
                     %img{:alt => "", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "32"}/
@@ -35,9 +35,3 @@
               =link_to 'ログイン', new_user_session_path(), class: 'user-sign-nav--login'
             %li
               =link_to '新規会員登録', '/users/sign_up_menu', class: 'user-sign-nav--regist'
-
-:javascript
-  $(function(){
-    console.log('aaaaa');
-    $("#sample ul").matchHeight();
-  });
