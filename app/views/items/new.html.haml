@@ -21,8 +21,14 @@
                     .sell-upload-items
                       %ul
                   .sell-upload-drop-box#itemnew_img_field__method#itemnew_img_field
-                    = f.label :image_id,class:"fail-photo" do
-                      = f.file_field :image_id, class:"sell-upload-drop-file"
+                    .image-input-box
+                      = f.label :images, class:"fail-photo" do
+                        = f.file_field :images, multiple: true, class:"sell-upload-drop-file"
+                        .fail-photo__text
+                          ドラッグアンドドロップ
+                          %br/
+                          またはクリックしてファイルをアップロード
+                        //こっからjs
                       -# %img#file-preview
               .sell-content
                 .form-group
@@ -45,9 +51,11 @@
                       %span.form-require 必須
                     %div
                       .select-wrap
+
                         = f.select :category_id,Category.all.where(ancestry: nil).map{|c| [c.name, c.id]},{include_blank: "---"},{class:'select-default', id:'selectitembox'}
                         = f.select :category_id,{},{include_blank: "---"},{class: "select-default", id:'selectitembox1',style: 'display:none' }
                         = f.select :category_id,{},{include_blank: "---"},{class: "select-default",id:"selectitembox2" ,style: "display:none"}
+
                         %i.icon-arrow-bottom
                   .form-group
                     %label
