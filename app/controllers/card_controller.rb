@@ -1,7 +1,7 @@
 class CardController < ApplicationController
   require "payjp"
 
-  
+  before_action :set_category
   
   def new
     card = Card.where(user_id: current_user.id)
@@ -20,7 +20,7 @@ class CardController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to payment_users_path
       else
         redirect_to action: "pay"
       end
@@ -48,5 +48,10 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  private
+  def set_category
+    @categories = Category.eager_load(children: :children).where(ancestry: nil)
   end
 end

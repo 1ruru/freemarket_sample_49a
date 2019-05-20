@@ -28,8 +28,6 @@
                           ドラッグアンドドロップ
                           %br/
                           またはクリックしてファイルをアップロード
-                        //こっからjs
-                      -# %img#file-preview
               .sell-content
                 .form-group
                   %label
@@ -51,11 +49,9 @@
                       %span.form-require 必須
                     %div
                       .select-wrap
-
                         = f.select :category_id,Category.all.where(ancestry: nil).map{|c| [c.name, c.id]},{include_blank: "---"},{class:'select-default', id:'selectitembox'}
                         = f.select :category_id,{},{include_blank: "---"},{class: "select-default", id:'selectitembox1',style: 'display:none' }
                         = f.select :category_id,{},{include_blank: "---"},{class: "select-default",id:"selectitembox2" ,style: "display:none"}
-
                         %i.icon-arrow-bottom
                   .form-group
                     %label
