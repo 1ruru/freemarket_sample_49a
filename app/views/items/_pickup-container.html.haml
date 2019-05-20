@@ -4,9 +4,9 @@
     %h3.text-center
       =link_to 'レディース 新着アイテム', '', class: 'link-blue'
     .items-box-content
-      - @items.each do |item|
+      - @ladies.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -26,9 +26,9 @@
     %h3.text-center.text-mercari-blue
       =link_to 'メンズ 新着アイテム', '', class: 'link-blue'
     .items-box-content
-      - @items.each do |item|
+      - @mens.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -48,9 +48,9 @@
     %h3.text-center
       =link_to 'ベビー・キッズ 新着アイテム', '', class: 'link-blue'
     .items-box-content
-      - @items.each do |item|
+      - @kids.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko8.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -70,9 +70,9 @@
     %h3.text-center
       =link_to 'コスメ・香水・美容 新着アイテム', '', class: 'link-blue'
     .items-box-content
-      - @items.each do |item|
+      - @cosmes.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko12.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -95,7 +95,7 @@
   .items-box-content
     - @items.each do |item|
       .items-box
-        = link_to "#" do
+        = link_to item_path(item.id) do
           .items-box-photo
             = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
           .items-box-body
@@ -117,7 +117,7 @@
     .items-box-content
       - @items.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -139,7 +139,7 @@
     .items-box-content
       - @items.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko11.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -161,7 +161,7 @@
     .items-box-content
       -@items.each do |item|
         .items-box
-          = link_to "#" do
+          = link_to item_path(item.id) do
             .items-box-photo
               = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
             .items-box-body
@@ -177,10 +177,3 @@
     .view-all
       %a{:href => "/jp/category/1/"} すべての商品を見る
 
-
--# - @parents.each do |parent|
--#   =parent.name
--#   - parent.children.each do |child|
--#     =child.name
--#     - child.children.each do |grandchild|
--#       =grandchild.name

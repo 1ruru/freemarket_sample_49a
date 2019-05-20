@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+  get 'purchase/index'
+  get 'purchase/done'
+  get 'card/new'
+  get 'card/show'
   root to: 'items#index'
   get 'items/test' => 'items#test'
   resources :users do
@@ -20,6 +24,20 @@ Rails.application.routes.draw do
     resources :payments
   end
   resources :items do
-    get 'purchase', on: :collection
+    resources :purchases, only: :index do
+      post 'pay', on: :collection
+      get 'done', on: :collection
+    end
+  end
+  namespace :api do
+    resources :items, only: :new, defaults: { format: 'json' }
+  end
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
   end
 end

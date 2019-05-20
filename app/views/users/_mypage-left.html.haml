@@ -78,9 +78,7 @@
           発送元・お届け先住所変更
           =fa_icon 'chevron-right',class:"icon-arrow"
       %li
-        %a.mypage-nav-list-item
-          支払い方法
-          =fa_icon 'chevron-right',class:"icon-arrow"
+        = link_to '支払い方法', payment_users_path(), class:'mypage-nav-list-item'
       %li
         %a.mypage-nav-list-item
           メール/パスワード

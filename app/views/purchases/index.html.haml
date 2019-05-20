@@ -1,3 +1,20 @@
+%h2 購入を確定しますか？
+-# %p Apple MacBook Pro 13インチ
+-# %p ¥135,000(送料込み)
+-# %h3 支払い方法
+-# - if @default_card_information.blank?
+-#   %br /
+-# - else
+-#   -#以下カード情報を表示
+-#   = "**** **** **** " + @default_card_information.last4
+-#   - exp_month = @default_card_information.exp_month.to_s
+-#   - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+-#   = exp_month + " / " + exp_year
+-# %br
+-# = form_tag(action: :pay, method: :post) do
+-#   %button 購入する
+
+
 .single-container
   %header.single-header
     %h1
@@ -11,10 +28,11 @@
       .buy-content-inner
         .buy-item-image
           = image_tag 'neko1.jpg'
-        %p.buy-item-name moussy クラッシュデニム25
-        %form.buy-form
+        %p.buy-item-name
+          = @item.name
+        .buy-form
           %p.buy-price
-            ¥ 3,500
+            = @item.price
             %span.item-shipping-fee 送料込み
           %p.point
             ポイントはありません
@@ -22,9 +40,11 @@
             %li.buy-price-row
               .buy-price-left 支払い金額
               .buy-price-rigth
-                %span ¥ 3,500
-          %button.buy-btn{:disabled => "disabled", :type => "submit"} 購入する
-          %input#user_info_is_not_complete{:type => "hidden"}/
+                %span
+                  = @item.price
+          .buy_btn-decision
+            = form_tag(action: :pay, method: :post) do
+              %button 購入する
     %section.buy-user-info
       .buy-user-inner
         %h3 配送先
@@ -43,13 +63,18 @@
       .buy-content-inner
         %h3 支払い方法
         %p.buy-user-info-text
-          %br/
-          \/
+          - if @default_card_information.blank?
+            %br /
+          - else
+            -#以下カード情報を表示
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %br
         %a.buy-user-info-fix
           %span 変更する
           = fa_icon 'chevron-right',class:"icon-arrow"
-
-
 
 
 
@@ -68,3 +93,8 @@
       %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1073571291", :width => "80"}/
     %p
       %small © 2019 Mercari
+
+
+-# = form_tag(action: :pay, method: :post) do
+-#   %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_e026919f8bd5baa78f96ffb2"}
+
