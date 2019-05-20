@@ -8,7 +8,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name
@@ -30,7 +30,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name
@@ -52,7 +52,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko8.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 =item.name
@@ -74,7 +74,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko12.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name
@@ -93,11 +93,11 @@
   %h3.text-center
     =link_to 'シャネル 新着アイテム', '', class: 'link-blue'
   .items-box-content
-    - @items.each do |item|
+    - @chanels.each do |item|
       .items-box
         = link_to item_path(item.id) do
           .items-box-photo
-            = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+            = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
           .items-box-body
             %h3.items-box-name
               = item.name
@@ -115,11 +115,11 @@
     %h3.text-center
       =link_to 'ルイ ヴィトン 新着アイテム', '', class: 'link-blue'
     .items-box-content
-      - @items.each do |item|
+      - @vuitton.each do |item|
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko4.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name
@@ -141,7 +141,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko11.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              -# = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name
@@ -163,7 +163,7 @@
         .items-box
           = link_to item_path(item.id) do
             .items-box-photo
-              = image_tag 'neko1.jpg', alt: '', height: '100%', width: '100%', class: 'lazyloaded'
+              -# = image_tag item.images.first(), size:'300x300', class: 'lazyloaded'
             .items-box-body
               %h3.items-box-name
                 = item.name

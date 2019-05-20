@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   include ConfirmationSender
   include CodeGenerator
 
+  before_action :set_category
+
   def sign_up_menu
     
   end
@@ -46,10 +48,21 @@ class UsersController < ApplicationController
   end
 
   def payment
-    
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = "sk_test_ea08d8eb3daefb829e554156"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def profile
+  end
 
+  private
+  def set_category
+    @categories = Category.eager_load(children: :children).where(ancestry: nil)
   end
 end

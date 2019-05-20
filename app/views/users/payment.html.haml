@@ -21,19 +21,19 @@
         .main
           .payments
             クレジットカード一覧
-            //クレジットカードの時しか知りましぇん_(┐「ε:)_
             .payment
               .payment__credit_card
                 .payment__credit_card--icon
                   = image_tag "mc_vrt_pos.svg", width:"32px"
                 .payment__credit_card--number
-                  ='************0123'
+                  = "**** **** **** " + @default_card_information.last4
                 .payment__credit_card--expiration_date
-                  ='01 / 20'
-                =link_to '削除する', '', class:'payment__credit_card--btn'
-
-
-
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+                = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class:'payment__credit_card--btn') do
+                  %input{ type: "hidden", name: "card_id", value: "", style: "clear:both;" }
+                  %button 削除する
         .bottom
           =link_to '',class:"nav-link link-mercari-blue" do
             ='支払い方法について'

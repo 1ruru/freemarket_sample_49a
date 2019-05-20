@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
+    card = Card.where(user_id: current_user.id)
   end
 
   def create

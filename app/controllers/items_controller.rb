@@ -3,11 +3,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.limit(4)
-    @mens = Item.where(Category_id: 2).limit(4).where(sold_out: 0)
-    @ladies = Item.where(Category_id: 1).limit(4).where(sold_out: 0)
-    @cosmes = Item.where(Category_id: 7).limit(4).where(sold_out: 0)
-    @kids = Item.where(Category_id: 3).limit(4).where(sold_out: 0)
-    
+    @mens = Item.where(Category_id: 95..120).limit(4).where(sold_out: 0)
+    @ladies = Item.where(category_id:67...94).limit(4).where(sold_out: 0)
+    @cosmes = Item.where(Category_id:140...162).limit(4).where(sold_out: 0)
+    @kids = Item.where(Category_id: 121..139).limit(4).where(sold_out: 0)
+    @chanels = Item.where(brand_id: 1).limit(4).where(sold_out: 0)
+    @vuitton = Item.where(brand_id: 3).limit(4).where(sold_out: 0)
   end
 
     def test
@@ -31,10 +32,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-
     @items = Item.new
-    
-
     @userItems = @item.user.items
     @cateItems = Item.where("category_id = #{@item.category.id}").limit(3)
   end
