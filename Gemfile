@@ -95,3 +95,8 @@ gem 'dotenv-rails'
 gem 'twilio-ruby', '~> 5.22.1'
 gem 'ancestry'
 gem 'ransack'
+
+#multi user registration
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

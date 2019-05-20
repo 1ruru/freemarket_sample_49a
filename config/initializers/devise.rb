@@ -32,6 +32,15 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  config.omniauth :google_oauth2,
+                  Rails.application.credentials.google_client_id,
+                  Rails.application.credentials.google_client_secret,
+                  name: :google,
+                  scope: %w(email)
+  config.omniauth :facebook,
+                  Rails.application.credentials.facebook_client_id,
+                  Rails.application.credentials.facebook_client_secret
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -296,4 +305,6 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+
 end
